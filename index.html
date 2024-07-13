@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boyuan Zhang - Simplified</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-color: #f4f4f4;
+        }
+        header {
+            background: #333;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+        }
+        nav {
+            background: #444;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 18px;
+            transition: color 0.3s;
+        }
+        nav a:hover {
+            color: #bbb;
+        }
+        .container {
+            padding: 40px 20px;
+            max-width: 800px;
+            margin: auto;
+        }
+        .profile {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .profile img {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            margin-right: 40px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            border-radius: 10px; /* Added small rounded corner */
+        }
+        .profile-info {
+            flex: 1;
+            padding-left: 20px;
+        }
+        .profile-info p {
+            margin: 10px 0;
+        }
+        .profile-info a {
+            display: inline-block;
+            margin-right: 10px;
+            color: #0056b3;
+            text-decoration: underline;
+        }
+        .profile-info a:hover {
+            color: #003366;
+        }
+        @media (max-width: 600px) {
+            .profile {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .profile img {
+                margin-right: 0;
+                margin-bottom: 20px;
+                width: 100%;
+                height: auto;
+            }
+            .profile-info {
+                padding-left: 0;
+            }
+        }
+        section {
+            margin-bottom: 20px;
+        }
+        h1, h2, h3 {
+            color: #333;
+        }
+        h1 {
+            font-size: 36px;
+            color: #fff;
+        }
+        h2 {
+            font-size: 28px;
+            border-bottom: 2px solid #333;
+            padding-bottom: 5px;
+        }
+        a {
+            color: #0056b3;
+            text-decoration: underline;
+        }
+        a:hover {
+            color: #003366;
+        }
+        footer {
+            background: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 20px;
+        }
+        ul {
+            list-style-type: disc;
+            padding-left: 20px;
+        }
+        .footnote {
+            font-size: 12px;
+            color: #666;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Boyuan Zhang</h1>
+    </header>
+    
+    <nav>
+        <a href="#about">About</a>
+        <a href="#research">Research</a>
+        <a href="#publications">Publications</a>
+        <a href="#awards">Awards</a>
+    </nav>
+    
+    <div class="container">
+        <div class="profile">
+            <img src="boyuan.jpg" alt="Boyuan Zhang">
+            <div class="profile-info">
+                <p>PhD Student, Intelligent Systems Engineering</p>
+                <p>Indiana University</p>
+                <p>Email: <a href="mailto:bozhan@iu.com">bozhan@iu.com</a></p>
+                <p>
+                    <a href="CV_Boyuan_Zhang.pdf" target="_blank">Download my CV</a>
+                    <a href="https://github.com/boyuanzhang62" target="_blank">GitHub</a>
+                    <a href="https://scholar.google.com/citations?hl=en&user=GKlJrYYAAAAJ" target="_blank">Google Scholar</a>
+                </p>
+            </div>
+        </div>
+        
+        <section id="about">
+            <h2>About</h2>
+            <p>I am currently pursuing a Ph.D. in the Department of Intelligent Systems Engineering at Indiana University Bloomington. I am affiliated with the HiPDAC lab under the supervision of Dr. Dingwen Tao. Prior to my enrollment at Indiana University, I completed my Bachelor of Science in Information Engineering at Shanghai Jiao Tong University in 2018 and my Master of Science in Electrical Engineering at the University of Southern California in 2020. During the summer of 2023, I undertook an internship at the Pacific Northwest National Laboratory, where I was supervised by Dr. Nathan R. Tallent. For further details or to contact me, please email me at bozhan@iu.edu.</p>
+        </section>
+        
+        <section id="research">
+            <h2>Research</h2>
+            <p>My research interests include:</p>
+            <ul>
+                <li>Compression</li>
+                <li>Quantum simulation</li>
+                <li>Parallel computing</li>
+            </ul>
+        </section>
+        
+        <section id="publications">
+            <h2>Publications</h2>
+            <ul>
+                <li><strong>(SC'24)</strong> Hao Feng*, <span style="color:#f28482"><u>Boyuan Zhang</u></span>*, Fanjiang Ye, Min Si, Ching-Hsiang Chu, Jiannan Tian, Chunxing Yin et al. "Accelerating Communication in Deep Learning Recommendation Model Training with Dual-Level Adaptive Lossy Compression." arXiv preprint arXiv:2407.04272 (2024).</li>
+                <li><strong>(HPDC'23)</strong> <span style="color:#f28482"><u>Boyuan Zhang</u></span>, Jiannan Tian, Sheng Di, Xiaodong Yu, Yunhe Feng, Xin Liang, Dingwen Tao, and Franck Cappello. "Fz-gpu: A fast and high-ratio lossy compressor for scientific computing applications on gpus." In Proceedings of the 32nd International Symposium on High-Performance Parallel and Distributed Computing, pp. 129-142. 2023.</li>
+                <li><strong>(ICS'23)</strong> <span style="color:#f28482"><u>Boyuan Zhang</u></span>, Jiannan Tian, Sheng Di, Xiaodong Yu, Martin Swany, Dingwen Tao, and Franck Cappello. "Gpulz: Optimizing lzss lossless compression for multi-byte data on modern gpus." In Proceedings of the 37th International Conference on Supercomputing, pp. 348-359. 2023.</li>
+            </ul>
+            <p class="footnote">* denotes equal contribution. Please refer to the full list on <a href="https://scholar.google.com/citations?hl=en&user=GKlJrYYAAAAJ" target="_blank">Google Scholar</a>.</p>
+        </section>
+        
+        <section id="awards">
+            <h2>Awards</h2>
+            <ul>
+                <li>National Science Foundation Travel Grants for The International ACM Symposium on High-Performance Parallel and Distributed Computing $2000 (HPDC), 2023</li>
+            </ul>
+        </section>
+    </div>
+    
+    <footer>
+        <p>&copy; 2024 Boyuan Zhang. All rights reserved.</p>
+    </footer>
+</body>
+</html>
