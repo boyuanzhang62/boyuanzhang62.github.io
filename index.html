@@ -321,45 +321,55 @@
             border-bottom: 1px dashed #2a4a5e;
         }
 
-        /* ─── Education ─── */
-        .edu-list { margin-top: 10px; }
-        .edu-entry { display: flex; gap: 24px; padding: 20px 0; border-bottom: 1px solid #f0f0f0; }
-        .edu-entry:last-child { border-bottom: none; }
-        .edu-year { flex-shrink: 0; width: 170px; font-size: 15px; color: #999; padding-top: 2px; }
-        .edu-body h3 { font-family: 'Source Serif 4', Georgia, serif; font-size: 17px; font-weight: 600; color: #16222a; margin-bottom: 4px; }
-        .edu-body .degree { font-size: 16px; color: #555; margin-bottom: 2px; }
-        .edu-body .advisor { font-size: 15px; color: #888; font-style: italic; }
 
-        /* ─── Experience ─── */
-        .exp-list { margin-top: 10px; }
-        .exp-entry { display: flex; gap: 24px; padding: 20px 0; border-bottom: 1px solid #f0f0f0; }
-        .exp-entry:last-child { border-bottom: none; }
-        .exp-year { flex-shrink: 0; width: 170px; font-size: 15px; color: #999; padding-top: 2px; }
-        .exp-body h3 { font-family: 'Source Serif 4', Georgia, serif; font-size: 17px; font-weight: 600; color: #16222a; margin-bottom: 4px; }
-        .exp-body .role { font-size: 16px; color: #555; margin-bottom: 4px; }
-        .exp-body .details { font-size: 15px; color: #888; line-height: 1.7; }
 
-        /* ─── Awards ─── */
-        .award-list { margin-top: 10px; }
-        .award-item { display: flex; gap: 24px; padding: 14px 0; border-bottom: 1px solid #f0f0f0; align-items: baseline; }
-        .award-item:last-child { border-bottom: none; }
-        .award-yr { flex-shrink: 0; width: 80px; font-size: 15px; color: #999; }
-        .award-text { font-size: 16px; color: #555; line-height: 1.6; }
-        .award-text strong { color: #2a4a5e; }
+        /* ─── Openings ─── */
+        .openings-box {
+            background: #f0f7fb;
+            border: 1px solid #c8dde8;
+            border-left: 4px solid #2a4a5e;
+            border-radius: 6px;
+            padding: 28px 32px;
+            font-size: 16px;
+            color: #444;
+            line-height: 1.85;
+        }
+        .openings-box p { margin-bottom: 14px; }
+        .openings-box p:last-child { margin-bottom: 0; }
+        .openings-box strong { color: #2a4a5e; }
+        .openings-box a { color: #2a4a5e; font-weight: 600; text-decoration: none; border-bottom: 1px dashed #2a4a5e; }
+        .openings-box a:hover { border-bottom-style: solid; }
 
-        /* ─── Teaching ─── */
-        .teaching-list { margin-top: 10px; }
-        .teaching-item { display: flex; gap: 24px; padding: 14px 0; border-bottom: 1px solid #f0f0f0; align-items: baseline; }
-        .teaching-item:last-child { border-bottom: none; }
-        .teaching-yr { flex-shrink: 0; width: 120px; font-size: 15px; color: #999; }
-        .teaching-text { font-size: 16px; color: #555; line-height: 1.6; }
-        .teaching-text strong { color: #2a4a5e; }
-
-        /* ─── Service ─── */
-        .service-list { margin-top: 10px; list-style: none; }
-        .service-list li { padding: 10px 0; font-size: 16px; color: #555; border-bottom: 1px solid #f0f0f0; line-height: 1.6; }
-        .service-list li:last-child { border-bottom: none; }
-        .service-list li strong { color: #2a4a5e; }
+        /* ─── News ─── */
+        .news-scroll {
+            position: relative;
+            max-height: 400px;
+            overflow-y: auto;
+            border: 1px solid #e8eef2;
+            border-radius: 8px;
+            padding: 8px 0;
+            scrollbar-width: thin;
+            scrollbar-color: #c8d8e4 transparent;
+        }
+        .news-scroll::-webkit-scrollbar { width: 6px; }
+        .news-scroll::-webkit-scrollbar-track { background: transparent; }
+        .news-scroll::-webkit-scrollbar-thumb { background: #c8d8e4; border-radius: 3px; }
+        .news-scroll::-webkit-scrollbar-thumb:hover { background: #9ab5c8; }
+        .news-fade {
+            position: sticky;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 40px;
+            background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%);
+            pointer-events: none;
+        }
+        .news-list { margin: 0; padding: 0 24px; }
+        .news-item { display: flex; gap: 20px; padding: 12px 0; border-bottom: 1px solid #f0f0f0; align-items: baseline; }
+        .news-item:last-child { border-bottom: none; }
+        .news-date { flex-shrink: 0; width: 72px; font-size: 14px; font-weight: 600; color: #2a4a5e; font-variant-numeric: tabular-nums; }
+        .news-text { font-size: 15px; color: #555; line-height: 1.6; }
+        .news-text strong { color: #2a4a5e; }
 
         /* ─── Publication Sub-heading ─── */
         .pub-subheading { font-family: 'Source Serif 4', Georgia, serif; font-size: 20px; font-weight: 600; color: #2a4a5e; margin-top: 40px; margin-bottom: 10px; padding-bottom: 10px; border-bottom: 1px solid #e8eef2; }
@@ -391,14 +401,8 @@
             .pub-entry { flex-direction: column; gap: 8px; }
             .pub-year { width: auto; display: flex; flex-direction: row; gap: 8px; align-items: center; }
             .pub-tag.award { margin-top: 0; }
-            .edu-entry { flex-direction: column; gap: 4px; }
-            .edu-year { width: auto; }
-            .exp-entry { flex-direction: column; gap: 4px; }
-            .exp-year { width: auto; }
-            .award-item { flex-direction: column; gap: 4px; }
-            .award-yr { width: auto; }
-            .teaching-item { flex-direction: column; gap: 4px; }
-            .teaching-yr { width: auto; }
+            .news-item { flex-direction: column; gap: 4px; }
+            .news-date { width: auto; }
             nav .nav-inner { justify-content: center; flex-wrap: wrap; }
             nav a { padding: 14px 12px; font-size: 12px; }
         }
@@ -412,12 +416,12 @@
             <img src="boyuan.png" alt="Boyuan Zhang">
             <div class="hero-text">
                 <h1>Boyuan Zhang (张博源)</h1>
-                <div class="subtitle">PhD Candidate, Intelligent Systems Engineering · Indiana University Bloomington</div>
+                <div class="subtitle">Assistant Professor, Department of Computer Science · University of Kentucky</div>
                 <div class="email">Email: <a href="mailto:bozhan@iu.edu">bozhan@iu.edu</a></div>
                 <div class="hero-links">
-                    <a class="primary" href="CV_Boyuan_Zhang.pdf" target="_blank">CV</a>
                     <a class="primary" href="https://github.com/boyuanzhang62" target="_blank">GitHub</a>
                     <a class="primary" href="https://scholar.google.com/citations?hl=en&user=GKlJrYYAAAAJ" target="_blank">Google Scholar</a>
+                    <a class="primary" href="https://www.linkedin.com/in/boyuan-zhang-b65344191/" target="_blank">LinkedIn</a>
                 </div>
             </div>
         </div>
@@ -427,13 +431,10 @@
     <nav>
         <div class="nav-inner">
             <a href="#about">About</a>
-            <a href="#education">Education</a>
+            <a href="#openings">Openings</a>
+            <a href="#news">News</a>
             <a href="#research">Research</a>
-            <a href="#experience">Experience</a>
             <a href="#publications">Publications</a>
-            <a href="#awards">Awards</a>
-            <a href="#teaching">Teaching</a>
-            <a href="#service">Service</a>
         </div>
     </nav>
 
@@ -443,46 +444,70 @@
         <section id="about">
             <h2>About</h2>
             <div class="about-text">
-                <p>I am a Ph.D. candidate in the Department of Intelligent Systems Engineering at <strong>Indiana University Bloomington</strong>, advised by Dr. Fengguang Song and previously by Dr. Dingwen Tao.</p>
+                <p>I will be joining the Department of Computer Science at the <strong>University of Kentucky</strong> as an Assistant Professor. I received my Ph.D. from the Department of Intelligent Systems Engineering at <strong>Indiana University Bloomington</strong> (2026), advised by Dr. Dingwen Tao and Dr. Fengguang Song.</p>
                 <p>I earned a B.Eng. in Information Engineering from <strong>Shanghai Jiao Tong University</strong> (2018) and an M.S. in Electrical Engineering from the <strong>University of Southern California</strong> (2020).</p>
                 <p>I collaborate with <strong>Argonne National Laboratory</strong> (Dr. Sheng Di, Dr. Franck Cappello) on scientific data compression, <strong>Pacific Northwest National Laboratory</strong> (Dr. Nathan R. Tallent) on quantum simulation and AI-based compression, and <strong>Meta</strong> (Dr. Min Si) on GPU-based compression for distributed training. In the summer of 2025, I interned at <strong>ByteDance</strong> (Seed, ML Systems) working on LLM inference optimization.</p>
-                <p>For further details or to contact me, please email me at <a href="mailto:bozhan@iu.edu">bozhan@iu.edu</a>.</p>
             </div>
         </section>
 
-        <section id="education">
-            <h2>Education</h2>
-            <div class="edu-list">
-                <div class="edu-entry">
-                    <div class="edu-year">2022 – Present</div>
-                    <div class="edu-body">
-                        <h3>Indiana University Bloomington</h3>
-                        <div class="degree">Ph.D. in Intelligent Systems Engineering</div>
-                        <div class="advisor">Advisor: Prof. Dingwen Tao and Prof. Fengguang Song</div>
+        <section id="openings">
+            <h2>Openings</h2>
+            <div class="openings-box">
+                <p><strong>I am actively recruiting fully-funded Ph.D. students</strong> to join my research group at the <strong>University of Kentucky</strong>. If you are interested in <strong>High-Performance Computing</strong>, <strong>Data Compression</strong>, <strong>Parallel Computing</strong>, <strong>ML Systems</strong>, <strong>Quantum Computing</strong>, or related topics, please feel free to reach out! Positions are available starting from <strong>Fall 2026</strong>.</p>
+                <p>For full details, see the recruiting page: <a href="openings.html">English</a> | <a href="openings-ch.html">中文版</a></p>
+            </div>
+        </section>
+
+        <section id="news">
+            <h2>News</h2>
+            <div class="news-scroll">
+                <div class="news-list">
+                    <div class="news-item">
+                        <div class="news-date">2026.06</div>
+                        <div class="news-text">I will be joining the Department of Computer Science at the University of Kentucky as an Assistant Professor.</div>
+                    </div>
+                    <div class="news-item">
+                        <div class="news-date">2026.03</div>
+                        <div class="news-text">Two papers accepted at <strong>IPDPS'26</strong>.</div>
+                    </div>
+                    <div class="news-item">
+                        <div class="news-date">2025.10</div>
+                        <div class="news-text">Reached <strong>Diamond</strong> in League of Legends with a 68% win rate, maining Aatrox top lane.</div>
+                    </div>
+                    <div class="news-item">
+                        <div class="news-date">2025.08</div>
+                        <div class="news-text">Completed internship at <strong>ByteDance</strong> (Seed, ML Systems) on LLM inference optimization.</div>
+                    </div>
+                    <div class="news-item">
+                        <div class="news-date">2025.06</div>
+                        <div class="news-text"><strong>Best Paper Runner-Up</strong> at ACM ICS'25 for BMQSim.</div>
+                    </div>
+                    <div class="news-item">
+                        <div class="news-date">2025.06</div>
+                        <div class="news-text"><strong>Best Paper Candidate</strong> at ACM ICS'25 for Aatrox.</div>
+                    </div>
+                    <div class="news-item">
+                        <div class="news-date">2025.03</div>
+                        <div class="news-text">Two papers accepted at <strong>ICS'25</strong>.</div>
+                    </div>
+                    <div class="news-item">
+                        <div class="news-date">2024.07</div>
+                        <div class="news-text">One paper accepted at <strong>SC'24</strong>.</div>
+                    </div>
+                    <div class="news-item">
+                        <div class="news-date">2023.05</div>
+                        <div class="news-text">Started internship at <strong>Pacific Northwest National Laboratory</strong> with Dr. Nathan R. Tallent.</div>
+                    </div>
+                    <div class="news-item">
+                        <div class="news-date">2023.04</div>
+                        <div class="news-text">Paper on FZ-GPU accepted at <strong>HPDC'23</strong>.</div>
+                    </div>
+                    <div class="news-item">
+                        <div class="news-date">2023.04</div>
+                        <div class="news-text">Paper on GPULZ accepted at <strong>ICS'23</strong>.</div>
                     </div>
                 </div>
-                <div class="edu-entry">
-                    <div class="edu-year">2021 – 2022</div>
-                    <div class="edu-body">
-                        <h3>Washington State University</h3>
-                        <div class="degree">Ph.D. in Computer Science (transferred to IU)</div>
-                        <div class="advisor">Advisor: Prof. Dingwen Tao</div>
-                    </div>
-                </div>
-                <div class="edu-entry">
-                    <div class="edu-year">2018 – 2020</div>
-                    <div class="edu-body">
-                        <h3>University of Southern California</h3>
-                        <div class="degree">M.S. in Electrical Engineering</div>
-                    </div>
-                </div>
-                <div class="edu-entry">
-                    <div class="edu-year">2014 – 2018</div>
-                    <div class="edu-body">
-                        <h3>Shanghai Jiao Tong University</h3>
-                        <div class="degree">B.Eng. in Information Engineering</div>
-                    </div>
-                </div>
+                <div class="news-fade"></div>
             </div>
         </section>
 
@@ -506,29 +531,6 @@
                     <h3>Quantum Computing</h3>
                     <p>Investigation of high-performance methods to support large-scale quantum circuit simulation and emerging quantum computing applications.</p>
                 </div>
-            </div>
-        </section>
-
-        <section id="experience">
-            <h2>Experience</h2>
-            <div class="exp-list">
-                <div class="exp-entry">
-                    <div class="exp-year">May 2025 – Aug. 2025</div>
-                    <div class="exp-body">
-                        <h3>ByteDance</h3>
-                        <div class="role">Research Scientist Intern, Seed — Machine Learning Systems</div>
-                        <div class="details">Developed Vayne, a unified GPU kernel for quantization and compression of LLM KV caches, enabling high-throughput inference with reduced memory footprint.</div>
-                    </div>
-                </div>
-                <div class="exp-entry">
-                    <div class="exp-year">May 2023 – Aug. 2023</div>
-                    <div class="exp-body">
-                        <h3>Pacific Northwest National Laboratory</h3>
-                        <div class="role">Ph.D. Intern in High-Performance Computing</div>
-                        <div class="details">Advised by Dr. Nathan R. Tallent. Evaluated lossy compression for microscopy images and built a GPU workflow for AI-based compression targeting high ratio, quality, and throughput.</div>
-                    </div>
-                </div>
-
             </div>
         </section>
 
@@ -608,58 +610,6 @@
             </div>
 
             <p class="footnote">* denotes equal contribution. Please refer to the full list on <a href="https://scholar.google.com/citations?hl=en&user=GKlJrYYAAAAJ" target="_blank">Google Scholar</a>.</p>
-        </section>
-
-        <section id="awards">
-            <h2>Awards & Honors</h2>
-            <div class="award-list">
-                <div class="award-item">
-                    <div class="award-yr">2025</div>
-                    <div class="award-text"><strong>Best Paper Runner-Up</strong>, ACM ICS'25 (BMQSim) — Top 3 of 320 submissions</div>
-                </div>
-                <div class="award-item">
-                    <div class="award-yr">2025</div>
-                    <div class="award-text"><strong>Best Paper Candidate</strong>, ACM ICS'25 (Aatrox) — Top 6 of 320 submissions</div>
-                </div>
-                <div class="award-item">
-                    <div class="award-yr">2023</div>
-                    <div class="award-text"><strong>Student Travel Grant</strong> ($1,500), HPDC'23</div>
-                </div>
-                <div class="award-item">
-                    <div class="award-yr">2022</div>
-                    <div class="award-text"><strong>Graduate Conference Grant</strong> ($3,000), Indiana University Bloomington</div>
-                </div>
-            </div>
-        </section>
-
-        <section id="teaching">
-            <h2>Teaching</h2>
-            <div class="teaching-list">
-                <div class="teaching-item">                    <div class="teaching-yr">Spring 2026</div>
-                    <div class="teaching-text"><strong>Assistant Instructor</strong> — ENGR-516: “Engineering Cloud Computing,” Indiana University</div>
-                </div>
-                <div class="teaching-item">                    <div class="teaching-yr">Fall 2024</div>
-                    <div class="teaching-text"><strong>Assistant Instructor</strong> — ENGR-516: "Engineering Cloud Computing," Indiana University</div>
-                </div>
-                <div class="teaching-item">
-                    <div class="teaching-yr">Spring 2022</div>
-                    <div class="teaching-text"><strong>Teaching Assistant</strong> — CPTS 360: "Systems Programming," Washington State University</div>
-                </div>
-                <div class="teaching-item">
-                    <div class="teaching-yr">Fall 2021</div>
-                    <div class="teaching-text"><strong>Teaching Assistant</strong> — CPTS 360: "Systems Programming," Washington State University</div>
-                </div>
-            </div>
-        </section>
-
-        <section id="service">
-            <h2>Professional Service</h2>
-            <ul class="service-list">
-                <li><strong>Reviewer:</strong> IEEE TPDS (2024–2025), CCGRID'25, QCE (2024–2025), CLOUD'23, ISSRE'23</li>
-                <li><strong>Program Committee:</strong> ISSRE'23 Artifact Evaluation</li>
-                <li><strong>Web Chair:</strong> QCCC'24</li>
-                <li><strong>Student Volunteer:</strong> SC'25 (St. Louis, MO), SC'23 (Denver, CO)</li>
-            </ul>
         </section>
 
     </div>

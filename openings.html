@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Openings – Boyuan Zhang</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@300;400;500;600;700&family=Source+Serif+4:wght@600;700&display=swap" rel="stylesheet">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Source Sans 3', -apple-system, sans-serif; color: #333; background: #fff; line-height: 1.6; }
+
+        .page-header {
+            background: #16222a;
+            background: linear-gradient(160deg, #16222a 0%, #2a4a5e 100%);
+            color: white;
+            padding: 50px 40px 40px;
+        }
+        .page-header-inner {
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .page-header h1 {
+            font-family: 'Source Serif 4', Georgia, serif;
+            font-size: 34px;
+            font-weight: 700;
+        }
+        .page-header a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 600;
+            border: 1px solid rgba(255,255,255,0.3);
+            padding: 8px 20px;
+            border-radius: 100px;
+            transition: all 0.25s;
+        }
+        .page-header a:hover { background: #fff; color: #16222a; border-color: #fff; }
+
+        .lang-switch {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px 40px 0;
+            text-align: right;
+        }
+        .lang-switch a {
+            font-size: 14px;
+            color: #2a4a5e;
+            text-decoration: none;
+            border: 1px solid #d0dde5;
+            padding: 6px 16px;
+            border-radius: 100px;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+        .lang-switch a:hover { background: #2a4a5e; color: #fff; }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 40px 80px;
+        }
+
+        h2 {
+            font-family: 'Source Serif 4', Georgia, serif;
+            font-size: 24px;
+            font-weight: 600;
+            color: #16222a;
+            margin-top: 48px;
+            margin-bottom: 16px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #e8eef2;
+        }
+        h2:first-child { margin-top: 0; }
+
+        .uk-icon {
+            width: 32px;
+            height: 32px;
+            object-fit: contain;
+            vertical-align: middle;
+            margin-right: 10px;
+            position: relative;
+            top: -2px;
+        }
+
+        .photo-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 12px;
+            margin-top: 24px;
+        }
+        .photo-gallery .photo-item {
+            border-radius: 8px;
+            overflow: hidden;
+            aspect-ratio: 16 / 10;
+            position: relative;
+            cursor: pointer;
+        }
+        .photo-gallery .photo-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+        .photo-gallery .photo-item:hover img {
+            transform: scale(1.05);
+        }
+        .photo-gallery .photo-item .caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.65) 0%, transparent 100%);
+            color: #fff;
+            font-size: 12px;
+            font-weight: 600;
+            padding: 24px 12px 8px;
+        }
+
+        .lightbox {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            background: rgba(0,0,0,0.85);
+            align-items: center;
+            justify-content: center;
+            padding: 40px;
+            cursor: zoom-out;
+        }
+        .lightbox.active { display: flex; }
+        .lightbox img {
+            max-width: 90vw;
+            max-height: 85vh;
+            object-fit: contain;
+            border-radius: 6px;
+            box-shadow: 0 8px 40px rgba(0,0,0,0.5);
+            cursor: default;
+        }
+        .lightbox .lb-caption {
+            position: absolute;
+            bottom: 24px;
+            left: 0;
+            right: 0;
+            text-align: center;
+            color: rgba(255,255,255,0.85);
+            font-size: 15px;
+            font-weight: 500;
+        }
+        .lightbox .lb-close {
+            position: absolute;
+            top: 20px;
+            right: 28px;
+            color: rgba(255,255,255,0.7);
+            font-size: 36px;
+            cursor: pointer;
+            line-height: 1;
+            transition: color 0.2s;
+        }
+        .lightbox .lb-close:hover { color: #fff; }
+        .lightbox .lb-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            color: rgba(255,255,255,0.7);
+            font-size: 48px;
+            cursor: pointer;
+            user-select: none;
+            padding: 0 12px;
+            line-height: 1;
+            transition: color 0.2s;
+        }
+        .lightbox .lb-nav:hover { color: #fff; }
+        .lightbox .lb-prev { left: 16px; }
+        .lightbox .lb-next { right: 16px; }
+
+        .highlight-box {
+            background: #f0f7fb;
+            border: 1px solid #c8dde8;
+            border-left: 4px solid #2a4a5e;
+            border-radius: 6px;
+            padding: 24px 28px;
+            font-size: 17px;
+            color: #333;
+            line-height: 1.8;
+            margin-bottom: 8px;
+        }
+        .highlight-box strong { color: #2a4a5e; }
+
+        p { font-size: 16px; color: #555; line-height: 1.85; margin-bottom: 14px; }
+        p strong { color: #2a4a5e; }
+
+        ol, ul { margin: 10px 0 18px 28px; font-size: 16px; color: #555; line-height: 1.85; }
+        li { margin-bottom: 6px; }
+
+        a.email-link {
+            color: #2a4a5e;
+            text-decoration: none;
+            border-bottom: 1px dashed #2a4a5e;
+            font-weight: 600;
+        }
+        a.email-link:hover { border-bottom-style: solid; }
+
+        footer { text-align: center; padding: 40px 20px; color: #ccc; font-size: 14px; }
+
+        @media (max-width: 700px) {
+            .page-header { padding: 36px 24px 30px; }
+            .page-header h1 { font-size: 26px; }
+            .container { padding: 30px 24px 60px; }
+            .lang-switch { padding: 16px 24px 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="page-header">
+        <div class="page-header-inner">
+            <h1>Openings</h1>
+            <a href="index.html">← Back to Homepage</a>
+        </div>
+    </div>
+
+    <div class="lang-switch">
+        <a href="openings-ch.html">中文版 / Chinese Version</a>
+    </div>
+
+    <div class="container">
+
+        <div class="highlight-box">
+            <strong>Boyuan Zhang</strong> from the Department of Computer Science at the <strong>University of Kentucky</strong> is recruiting fully-funded Ph.D. students starting from <strong>Fall 2026</strong>, in the areas of High-Performance Computing, data compression, parallel computing, ML systems, and quantum computing.
+        </div>
+
+        <h2>Research Areas</h2>
+        <ol>
+            <li><strong>High-Performance Computing (HPC)</strong></li>
+            <li><strong>Scientific Data Compression</strong> — GPU-based lossy and lossless compression</li>
+            <li><strong>Parallel Computing</strong> — GPU programming, distributed algorithms</li>
+            <li><strong>ML Systems</strong> — system-level optimization for training and inference</li>
+            <li><strong>Quantum Computing</strong> — high-performance quantum circuit simulation</li>
+        </ol>
+
+        <h2>About Me</h2>
+        <p>Dr. Boyuan Zhang is an Assistant Professor in the Department of Computer Science at the University of Kentucky. He received his Ph.D. in Intelligent Systems Engineering from Indiana University Bloomington (2026), advised by Prof. Dingwen Tao and Prof. Fengguang Song. He earned his B.Eng. in Information Engineering from Shanghai Jiao Tong University (2018) and his M.S. in Electrical Engineering from the University of Southern California (2020).</p>
+        <p>His research focuses on high-performance computing, with emphasis on GPU-accelerated data compression, parallel algorithms, systems for machine learning, and quantum computing. He has published in top venues including SC, ICS, HPDC, and IPDPS, receiving Best Paper Runner-Up and Best Paper Candidate at ACM ICS'25. He has collaborated extensively with Argonne National Laboratory, Pacific Northwest National Laboratory, Meta, and ByteDance.</p>
+
+        <h2>Research Group</h2>
+        <p>The research involves interdisciplinary and multi-institutional collaborations, offering students access to excellent platforms and facilities, as well as the opportunity to deploy research on large-scale supercomputers. Students will have opportunities for summer internships at major national laboratories (e.g., Argonne, PNNL), and I can also provide referrals and recommendations for industry internships.</p>
+        <p>Full funding will be provided to Ph.D. students, covering tuition, competitive stipend, health insurance, and conference travel support. I am committed to working closely with students and helping them develop both technical depth and research independence.</p>
+
+        <h2>Student Support & Resources</h2>
+        <p>Each student will be provided with a dedicated desk in the lab, a personal laptop (e.g., MacBook Pro), and an external monitor for daily research and development. The university's <a href="https://www.ccs.uky.edu/" target="_blank" class="email-link">Center for Computational Sciences (CCS)</a> maintains HPC clusters equipped with NVIDIA A100 and H200 GPUs for large-scale experiments. In addition, local workstations with multiple NVIDIA GPUs will be configured based on individual research needs.</p>
+
+        <h2><img src="images/uk_icon.png" alt="UK" class="uk-icon">About the University of Kentucky</h2>
+        <p>The University of Kentucky is the flagship public research university of the Commonwealth of Kentucky, classified as an <strong>"R1: Very High Research Activity"</strong> institution by the Carnegie Classification (2025), with over <strong>$504 million</strong> in annual research spending. Key rankings include:</p>
+        <ul>
+            <li><strong>#74</strong> among Top Public Universities (U.S. News & World Report, 2026)</li>
+            <li><strong>#143</strong> National University (U.S. News & World Report, 2026)</li>
+            <li><strong>#407</strong> Best Global Universities (U.S. News & World Report)</li>
+            <li><strong>#401–500</strong> Times Higher Education World University Rankings (2026)</li>
+            <li><strong>#307</strong> CWTS Leiden Ranking (2025)</li>
+        </ul>
+        <p>The Department of Computer Science offers a vibrant research environment with strengths in systems, HPC, AI, and data science.</p>
+        <p>The university is located in Lexington, Kentucky — known as the <strong>"Horse Capital of the World"</strong>. The University of Kentucky has a storied athletics tradition, especially in basketball — the Wildcats are one of the most successful programs in NCAA history, and the passionate sports culture creates an energetic and spirited campus community.</p>
+        <p>Lexington has received numerous national recognitions for livability:</p>
+        <ul>
+            <li><strong>#15</strong> Best Places to Live in the U.S. (U.S. News & World Report, 2024–2025)</li>
+            <li><strong>#1</strong> Most Tourist-Friendly City in the U.S. (Condé Nast Traveler, 2025)</li>
+            <li><strong>#6</strong> Best Food City in the U.S. (Condé Nast Traveler, 2025)</li>
+            <li>Named one of <strong>"The South's Best Cities"</strong> (Southern Living, 2025)</li>
+        </ul>
+        <p>The city offers a moderate cost of living with a high quality of life and happiness index, a welcoming community known for its Southern hospitality, over 100 public parks, and easy access to outdoor destinations like the Red River Gorge. Lexington enjoys a pleasant four-season climate and is within a short drive of Louisville, Cincinnati, and Nashville.</p>
+
+        <div class="photo-gallery">
+            <div class="photo-item">
+                <img src="images/universityofkentucky_cover.jpg" alt="University of Kentucky">
+                <div class="caption">University of Kentucky</div>
+            </div>
+            <div class="photo-item">
+                <img src="images/fa1091324a9dfa4db7ac706286909748.jpg" alt="Davis Marksbury Building">
+                <div class="caption">Davis Marksbury Building</div>
+            </div>
+            <div class="photo-item">
+                <img src="images/university-of-kentucky-gatton-student-center-9.jpg" alt="Gatton Student Center">
+                <div class="caption">Gatton Student Center</div>
+            </div>
+            <div class="photo-item">
+                <img src="images/LEX_240719_TBT_45.jpg" alt="Rupp Arena — Wildcats Basketball">
+                <div class="caption">Rupp Arena — Wildcats Basketball</div>
+            </div>
+            <div class="photo-item">
+                <img src="images/temp_61557186-1a66-4dc9-9668-bc1c072d277b.jpg" alt="Kentucky Horse Farm">
+                <div class="caption">Kentucky Horse Farm</div>
+            </div>
+            <div class="photo-item">
+                <img src="images/downtown-lexington-skyline.jpg" alt="Lexington Skyline">
+                <div class="caption">Lexington Skyline</div>
+            </div>
+        </div>
+
+        <h2>Requirements</h2>
+        <ol>
+            <li>A Bachelor's or Master's degree in Computer Science, Electrical Engineering, Mathematics, Physics, or a related field.</li>
+            <li>Solid programming skills.</li>
+            <li>Passion for research and a strong motivation to learn independently.</li>
+        </ol>
+
+        <h2>How to Apply</h2>
+        <ol>
+            <li>The start date for the Ph.D. program is flexible, starting from <strong>Fall 2026</strong> and onwards.</li>
+            <li>Interested candidates are welcome to reach out via email.</li>
+            <li>Please use the email subject line: <strong>"PhD Application [Semester] [Year] [Your Name]"</strong>.</li>
+            <li>Please include in the email:
+                <ul>
+                    <li>A brief personal statement (research experience, interests, and goals)</li>
+                    <li>Your CV/resume</li>
+                    <li>Academic transcripts (unofficial is fine)</li>
+                    <li>Any other materials you find relevant (e.g., TOEFL/GRE scores, publications)</li>
+                </ul>
+            </li>
+            <li>Please combine all materials into a single PDF if possible.</li>
+            <li>Send to: <a class="email-link" href="mailto:bozhan@iu.edu">bozhan@iu.edu</a></li>
+        </ol>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Boyuan Zhang. All rights reserved.</p>
+    </footer>
+
+    <div class="lightbox" id="lightbox">
+        <span class="lb-close" id="lb-close">&times;</span>
+        <span class="lb-nav lb-prev" id="lb-prev">&#8249;</span>
+        <span class="lb-nav lb-next" id="lb-next">&#8250;</span>
+        <img id="lb-img" src="" alt="">
+        <div class="lb-caption" id="lb-caption"></div>
+    </div>
+
+    <script>
+    (function() {
+        var items = document.querySelectorAll('.photo-item');
+        var lb = document.getElementById('lightbox');
+        var lbImg = document.getElementById('lb-img');
+        var lbCap = document.getElementById('lb-caption');
+        var idx = 0;
+
+        function show(i) {
+            idx = (i + items.length) % items.length;
+            var img = items[idx].querySelector('img');
+            var cap = items[idx].querySelector('.caption');
+            lbImg.src = img.src;
+            lbCap.textContent = cap ? cap.textContent : '';
+            lb.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function hide() {
+            lb.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        items.forEach(function(item, i) {
+            item.addEventListener('click', function() { show(i); });
+        });
+
+        document.getElementById('lb-close').addEventListener('click', hide);
+        document.getElementById('lb-prev').addEventListener('click', function(e) { e.stopPropagation(); show(idx - 1); });
+        document.getElementById('lb-next').addEventListener('click', function(e) { e.stopPropagation(); show(idx + 1); });
+        lb.addEventListener('click', function(e) { if (e.target === lb) hide(); });
+        document.addEventListener('keydown', function(e) {
+            if (!lb.classList.contains('active')) return;
+            if (e.key === 'Escape') hide();
+            if (e.key === 'ArrowLeft') show(idx - 1);
+            if (e.key === 'ArrowRight') show(idx + 1);
+        });
+    })();
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>招生信息 – Boyuan Zhang (张博源)</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&family=Source+Sans+3:wght@300;400;500;600;700&family=Source+Serif+4:wght@600;700&display=swap" rel="stylesheet">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Noto Sans SC', 'Source Sans 3', -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif; color: #333; background: #fff; line-height: 1.75; }
+
+        .page-header {
+            background: #16222a;
+            background: linear-gradient(160deg, #16222a 0%, #2a4a5e 100%);
+            color: white;
+            padding: 50px 40px 40px;
+        }
+        .page-header-inner {
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .page-header h1 {
+            font-family: 'Source Serif 4', Georgia, serif;
+            font-size: 34px;
+            font-weight: 700;
+        }
+        .page-header a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 600;
+            border: 1px solid rgba(255,255,255,0.3);
+            padding: 8px 20px;
+            border-radius: 100px;
+            transition: all 0.25s;
+        }
+        .page-header a:hover { background: #fff; color: #16222a; border-color: #fff; }
+
+        .lang-switch {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px 40px 0;
+            text-align: right;
+        }
+        .lang-switch a {
+            font-size: 14px;
+            color: #2a4a5e;
+            text-decoration: none;
+            border: 1px solid #d0dde5;
+            padding: 6px 16px;
+            border-radius: 100px;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+        .lang-switch a:hover { background: #2a4a5e; color: #fff; }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 40px 80px;
+        }
+
+        h2 {
+            font-family: 'Source Serif 4', Georgia, serif;
+            font-size: 24px;
+            font-weight: 600;
+            color: #16222a;
+            margin-top: 48px;
+            margin-bottom: 16px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #e8eef2;
+        }
+        h2:first-child { margin-top: 0; }
+
+        .uk-icon {
+            width: 32px;
+            height: 32px;
+            object-fit: contain;
+            vertical-align: middle;
+            margin-right: 10px;
+            position: relative;
+            top: -2px;
+        }
+
+        .photo-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 12px;
+            margin-top: 24px;
+        }
+        .photo-gallery .photo-item {
+            border-radius: 8px;
+            overflow: hidden;
+            aspect-ratio: 16 / 10;
+            position: relative;
+            cursor: pointer;
+        }
+        .photo-gallery .photo-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+        .photo-gallery .photo-item:hover img {
+            transform: scale(1.05);
+        }
+        .photo-gallery .photo-item .caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.65) 0%, transparent 100%);
+            color: #fff;
+            font-size: 12px;
+            font-weight: 600;
+            padding: 24px 12px 8px;
+        }
+
+        .lightbox {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            background: rgba(0,0,0,0.85);
+            align-items: center;
+            justify-content: center;
+            padding: 40px;
+            cursor: zoom-out;
+        }
+        .lightbox.active { display: flex; }
+        .lightbox img {
+            max-width: 90vw;
+            max-height: 85vh;
+            object-fit: contain;
+            border-radius: 6px;
+            box-shadow: 0 8px 40px rgba(0,0,0,0.5);
+            cursor: default;
+        }
+        .lightbox .lb-caption {
+            position: absolute;
+            bottom: 24px;
+            left: 0;
+            right: 0;
+            text-align: center;
+            color: rgba(255,255,255,0.85);
+            font-size: 15px;
+            font-weight: 500;
+        }
+        .lightbox .lb-close {
+            position: absolute;
+            top: 20px;
+            right: 28px;
+            color: rgba(255,255,255,0.7);
+            font-size: 36px;
+            cursor: pointer;
+            line-height: 1;
+            transition: color 0.2s;
+        }
+        .lightbox .lb-close:hover { color: #fff; }
+        .lightbox .lb-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            color: rgba(255,255,255,0.7);
+            font-size: 48px;
+            cursor: pointer;
+            user-select: none;
+            padding: 0 12px;
+            line-height: 1;
+            transition: color 0.2s;
+        }
+        .lightbox .lb-nav:hover { color: #fff; }
+        .lightbox .lb-prev { left: 16px; }
+        .lightbox .lb-next { right: 16px; }
+
+        .highlight-box {
+            background: #f0f7fb;
+            border: 1px solid #c8dde8;
+            border-left: 4px solid #2a4a5e;
+            border-radius: 6px;
+            padding: 24px 28px;
+            font-size: 17px;
+            color: #333;
+            line-height: 1.8;
+            margin-bottom: 8px;
+        }
+        .highlight-box strong { color: #2a4a5e; }
+
+        p { font-size: 16px; color: #555; line-height: 2; margin-bottom: 16px; }
+        p strong { color: #2a4a5e; }
+
+        ol, ul { margin: 10px 0 18px 28px; font-size: 16px; color: #555; line-height: 2; }
+        li { margin-bottom: 6px; }
+
+        a.email-link {
+            color: #2a4a5e;
+            text-decoration: none;
+            border-bottom: 1px dashed #2a4a5e;
+            font-weight: 600;
+        }
+        a.email-link:hover { border-bottom-style: solid; }
+
+        footer { text-align: center; padding: 40px 20px; color: #ccc; font-size: 14px; }
+
+        @media (max-width: 700px) {
+            .page-header { padding: 36px 24px 30px; }
+            .page-header h1 { font-size: 26px; }
+            .container { padding: 30px 24px 60px; }
+            .lang-switch { padding: 16px 24px 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="page-header">
+        <div class="page-header-inner">
+            <h1>招生信息</h1>
+            <a href="index.html">← 返回主页</a>
+        </div>
+    </div>
+
+    <div class="lang-switch">
+        <a href="openings.html">English Version</a>
+    </div>
+
+    <div class="container">
+
+        <div class="highlight-box">
+            肯塔基大学（University of Kentucky）计算机科学系助理教授<strong>张博源</strong>招收全奖博士生，<strong>2026年秋季</strong>起均可入学，研究方向包括高性能计算、数据压缩、并行计算、机器学习系统、量子计算等。
+        </div>
+
+        <h2>主要研究方向</h2>
+        <ol>
+            <li><strong>高性能计算（HPC）</strong></li>
+            <li><strong>科学数据压缩</strong> — GPU加速的有损与无损压缩算法</li>
+            <li><strong>并行计算</strong> — GPU编程、分布式算法与优化</li>
+            <li><strong>机器学习系统</strong> — 训练与推理的系统级优化</li>
+            <li><strong>量子计算</strong> — 大规模量子电路模拟</li>
+        </ol>
+
+        <h2>导师简介</h2>
+        <p>张博源（Boyuan Zhang），肯塔基大学计算机科学系助理教授。博士毕业于印第安纳大学伯明顿分校（Indiana University Bloomington，2026）智能系统工程系，导师为陶鼎文教授（Prof. Dingwen Tao）和宋风光教授（Prof. Fengguang Song）。本科毕业于上海交通大学信息工程专业（2018年），硕士毕业于南加州大学电子工程专业（2020年）。</p>
+        <p>主要研究方向为高性能计算，聚焦于GPU加速数据压缩、并行算法、机器学习系统优化及量子计算。已在SC、ICS、HPDC、IPDPS等高性能计算领域顶级会议发表多篇论文，并在ACM ICS'25获得Best Paper Runner-Up和Best Paper Candidate。曾与Argonne国家实验室、Pacific Northwest国家实验室、Meta、字节跳动等机构开展深入合作。</p>
+
+        <h2>实验室相关</h2>
+        <p>研究内容和实验涉及多领域、多机构合作，能为学生提供优秀的平台和设施，以及在大规模超级计算机上部署和验证研究成果。学生将有机会在暑期前往美国国家实验室（如Argonne、PNNL）实习，导师也可以帮助推荐工业界的实习机会。</p>
+        <p>博士生将获得全额资助，涵盖学费、有竞争力的生活津贴、医疗保险以及学术会议差旅经费。导师注重与学生的密切合作，致力于帮助学生在技术深度和独立科研能力两方面同步成长。</p>
+
+        <h2>学生支持与设备资源</h2>
+        <p>每位学生将拥有独立的实验室工位，配备个人笔记本电脑（如MacBook Pro）及外接显示器，用于日常科研与开发。学校的<a href="https://www.ccs.uky.edu/" target="_blank" class="email-link">计算科学中心（CCS）</a>拥有配备NVIDIA A100和H200 GPU的HPC计算集群，可用于大规模实验。此外，还会根据学生的具体研究需求配备搭载多块NVIDIA GPU的本地工作站。</p>
+
+        <h2><img src="images/uk_icon.png" alt="UK" class="uk-icon">肯塔基大学简介</h2>
+        <p>肯塔基大学（University of Kentucky）是肯塔基州的旗舰公立研究型大学，2025年卡内基学术基金会评定为<strong>"R1: 最高研究活动"</strong>机构，年度科研经费超过<strong>5.04亿美元</strong>。主要排名如下：</p>
+        <ul>
+            <li>U.S. News 全美公立大学排名 <strong>#74</strong>（2026）</li>
+            <li>U.S. News 全美综合大学排名 <strong>#143</strong>（2026）</li>
+            <li>U.S. News 全球最佳大学排名 <strong>#407</strong></li>
+            <li>泰晤士高等教育（THE）世界大学排名 <strong>#401–500</strong>（2026）</li>
+            <li>CWTS Leiden 排名 <strong>#307</strong>（2025）</li>
+        </ul>
+        <p>计算机科学系拥有活跃的科研氛围，在系统、高性能计算、人工智能和数据科学等方向具有较强实力。</p>
+        <p>学校坐落于肯塔基州列克星敦市（Lexington），素有<strong>"世界马都"</strong>之称。肯塔基大学拥有悠久的体育传统，尤其是篮球——Wildcats是NCAA历史上最成功的球队之一，浓厚的体育氛围为校园注入了独特的活力与凝聚力。</p>
+        <p>列克星敦在多项全美宜居评选中表现优异：</p>
+        <ul>
+            <li>全美最佳居住地 <strong>#15</strong>（U.S. News & World Report，2024–2025）</li>
+            <li>全美最友好旅游城市 <strong>#1</strong>（Condé Nast Traveler，2025）</li>
+            <li>全美最佳美食城市 <strong>#6</strong>（Condé Nast Traveler，2025）</li>
+            <li>入选<strong>"南方最佳城市"</strong>（Southern Living，2025）</li>
+        </ul>
+        <p>列克星敦生活成本适中、幸福指数高，社区友好热情、以南方式待客之道闻名，拥有超过100个公共公园，还可便捷前往红河谷（Red River Gorge）等自然景观。城市四季分明，气候宜人，距离路易维尔（Louisville）、辛辛那提（Cincinnati）、纳什维尔（Nashville）等城市车程均在两小时以内。</p>
+
+        <div class="photo-gallery">
+            <div class="photo-item">
+                <img src="images/universityofkentucky_cover.jpg" alt="肯塔基大学">
+                <div class="caption">肯塔基大学</div>
+            </div>
+            <div class="photo-item">
+                <img src="images/fa1091324a9dfa4db7ac706286909748.jpg" alt="Davis Marksbury Building">
+                <div class="caption">Davis Marksbury大楼</div>
+            </div>
+            <div class="photo-item">
+                <img src="images/university-of-kentucky-gatton-student-center-9.jpg" alt="Gatton学生中心">
+                <div class="caption">Gatton学生中心</div>
+            </div>
+            <div class="photo-item">
+                <img src="images/LEX_240719_TBT_45.jpg" alt="Rupp Arena — Wildcats篮球">
+                <div class="caption">Rupp Arena — Wildcats篮球</div>
+            </div>
+            <div class="photo-item">
+                <img src="images/temp_61557186-1a66-4dc9-9668-bc1c072d277b.jpg" alt="肯塔基马场">
+                <div class="caption">肯塔基马场</div>
+            </div>
+            <div class="photo-item">
+                <img src="images/downtown-lexington-skyline.jpg" alt="列克星敦天际线">
+                <div class="caption">列克星敦天际线</div>
+            </div>
+        </div>
+
+        <h2>基本要求</h2>
+        <ol>
+            <li>本科及以上学历，计算机科学、电子工程、数学、物理或相关专业。</li>
+            <li>具备良好的编程能力。</li>
+            <li>对科研有热情，具有较强的自主学习能力。</li>
+        </ol>
+
+        <h2>申请方式</h2>
+        <ol>
+            <li>博士项目入学时间灵活，<strong>2026年秋季</strong>起均可入学。</li>
+            <li>有意向的同学请发邮件联系。</li>
+            <li>请使用邮件标题：<strong>"PhD Application [学期] [年份] [姓名]"</strong>。</li>
+            <li>请在邮件中附上以下材料：
+                <ul>
+                    <li>简要的自我介绍（包括研究经历、研究兴趣及未来规划）</li>
+                    <li>个人简历（CV）</li>
+                    <li>成绩单（非官方即可）</li>
+                    <li>其他你认为有帮助的材料（如TOEFL/GRE成绩、已发表论文等）</li>
+                </ul>
+            </li>
+            <li>如可能，请将所有材料合并为一份PDF文件。</li>
+            <li>请发送至邮箱：<a class="email-link" href="mailto:bozhan@iu.edu">bozhan@iu.edu</a></li>
+        </ol>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Boyuan Zhang. All rights reserved.</p>
+    </footer>
+
+    <div class="lightbox" id="lightbox">
+        <span class="lb-close" id="lb-close">&times;</span>
+        <span class="lb-nav lb-prev" id="lb-prev">&#8249;</span>
+        <span class="lb-nav lb-next" id="lb-next">&#8250;</span>
+        <img id="lb-img" src="" alt="">
+        <div class="lb-caption" id="lb-caption"></div>
+    </div>
+
+    <script>
+    (function() {
+        var items = document.querySelectorAll('.photo-item');
+        var lb = document.getElementById('lightbox');
+        var lbImg = document.getElementById('lb-img');
+        var lbCap = document.getElementById('lb-caption');
+        var idx = 0;
+
+        function show(i) {
+            idx = (i + items.length) % items.length;
+            var img = items[idx].querySelector('img');
+            var cap = items[idx].querySelector('.caption');
+            lbImg.src = img.src;
+            lbCap.textContent = cap ? cap.textContent : '';
+            lb.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function hide() {
+            lb.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        items.forEach(function(item, i) {
+            item.addEventListener('click', function() { show(i); });
+        });
+
+        document.getElementById('lb-close').addEventListener('click', hide);
+        document.getElementById('lb-prev').addEventListener('click', function(e) { e.stopPropagation(); show(idx - 1); });
+        document.getElementById('lb-next').addEventListener('click', function(e) { e.stopPropagation(); show(idx + 1); });
+        lb.addEventListener('click', function(e) { if (e.target === lb) hide(); });
+        document.addEventListener('keydown', function(e) {
+            if (!lb.classList.contains('active')) return;
+            if (e.key === 'Escape') hide();
+            if (e.key === 'ArrowLeft') show(idx - 1);
+            if (e.key === 'ArrowRight') show(idx + 1);
+        });
+    })();
+    </script>
+
+</body>
+</html>
