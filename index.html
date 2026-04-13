@@ -194,39 +194,41 @@
         }
 
         /* ─── Research ─── */
-        .research-grid {
+        .research-list {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 20px;
-            margin-top: 10px;
+            gap: 6px 40px;
+            margin-top: 8px;
         }
 
-        .research-card {
-            background: #f8fafb;
-            border: 1px solid #e8eef2;
-            border-radius: 8px;
-            padding: 28px;
-            transition: all 0.25s ease;
+        .research-item {
+            display: flex;
+            align-items: baseline;
+            gap: 12px;
+            padding: 10px 0;
         }
 
-        .research-card:hover {
-            border-color: #2a4a5e;
-            box-shadow: 0 4px 16px rgba(42, 74, 94, 0.08);
+        .research-item::before {
+            content: '';
+            flex-shrink: 0;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: #2a4a5e;
+            position: relative;
+            top: 1px;
         }
 
-        .research-card h3 {
-            font-family: 'Source Serif 4', Georgia, serif;
-            font-size: 18px;
+        .research-item .research-title {
             font-weight: 600;
             color: #16222a;
-            margin-bottom: 10px;
+            font-size: 16px;
         }
 
-        .research-card p {
-            font-size: 15px;
-            color: #777;
-            line-height: 1.7;
-            margin: 0;
+        .research-item .research-desc {
+            color: #888;
+            font-size: 14px;
+            margin-left: 0;
         }
 
         /* ─── Publications ─── */
@@ -324,51 +326,57 @@
 
 
         /* ─── Openings ─── */
-        .openings-box {
-            background: #f0f7fb;
-            border: 1px solid #c8dde8;
-            border-left: 4px solid #2a4a5e;
-            border-radius: 6px;
+        .openings-content {
+            background: linear-gradient(135deg, #f6f9fb 0%, #eef3f7 100%);
+            border: 1px solid #dce6ed;
+            border-radius: 10px;
             padding: 28px 32px;
-            font-size: 16px;
-            color: #444;
+            font-size: 17px;
+            color: #555;
             line-height: 1.85;
         }
-        .openings-box p { margin-bottom: 14px; }
-        .openings-box p:last-child { margin-bottom: 0; }
-        .openings-box strong { color: #2a4a5e; }
-        .openings-box a { color: #2a4a5e; font-weight: 600; text-decoration: none; border-bottom: 1px dashed #2a4a5e; }
-        .openings-box a:hover { border-bottom-style: solid; }
+        .openings-content p { margin-bottom: 12px; }
+        .openings-content p:last-child { margin-bottom: 0; }
+        .openings-content strong { color: #2a4a5e; }
+        .openings-content a { color: #2a4a5e; font-weight: 600; text-decoration: none; border-bottom: 1px dashed #2a4a5e; }
+        .openings-content a:hover { border-bottom-style: solid; }
+        .openings-highlight {
+            display: inline-block;
+            background: transparent;
+            color: #2a4a5e;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 0.3px;
+            padding: 0;
+            margin-bottom: 14px;
+        }
 
         /* ─── News ─── */
         .news-scroll {
             position: relative;
-            max-height: 400px;
+            max-height: 380px;
             overflow-y: auto;
-            border: 1px solid #e8eef2;
-            border-radius: 8px;
-            padding: 8px 0;
+            padding: 0;
             scrollbar-width: thin;
-            scrollbar-color: #c8d8e4 transparent;
+            scrollbar-color: #d8e2ea transparent;
         }
-        .news-scroll::-webkit-scrollbar { width: 6px; }
+        .news-scroll::-webkit-scrollbar { width: 5px; }
         .news-scroll::-webkit-scrollbar-track { background: transparent; }
-        .news-scroll::-webkit-scrollbar-thumb { background: #c8d8e4; border-radius: 3px; }
+        .news-scroll::-webkit-scrollbar-thumb { background: #d8e2ea; border-radius: 3px; }
         .news-scroll::-webkit-scrollbar-thumb:hover { background: #9ab5c8; }
         .news-fade {
             position: sticky;
             bottom: 0;
             left: 0;
             right: 0;
-            height: 40px;
+            height: 36px;
             background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%);
             pointer-events: none;
         }
-        .news-list { margin: 0; padding: 0 24px; }
-        .news-item { display: flex; gap: 20px; padding: 12px 0; border-bottom: 1px solid #f0f0f0; align-items: baseline; }
-        .news-item:last-child { border-bottom: none; }
-        .news-date { flex-shrink: 0; width: 72px; font-size: 14px; font-weight: 600; color: #2a4a5e; font-variant-numeric: tabular-nums; }
-        .news-text { font-size: 15px; color: #555; line-height: 1.6; }
+        .news-list { margin: 0; padding: 0; }
+        .news-item { display: flex; gap: 16px; padding: 9px 0; align-items: baseline; }
+        .news-date { flex-shrink: 0; width: 64px; font-size: 13px; font-weight: 600; color: #2a4a5e; font-variant-numeric: tabular-nums; }
+        .news-text { font-size: 15px; color: #555; line-height: 1.55; }
         .news-text strong { color: #2a4a5e; }
 
         /* ─── Publication Sub-heading ─── */
@@ -397,7 +405,7 @@
             .hero-links { justify-content: center; }
             .content { padding: 0 24px; }
             section { padding: 36px 0; }
-            .research-grid { grid-template-columns: 1fr; }
+            .research-list { grid-template-columns: 1fr; }
             .pub-entry { flex-direction: column; gap: 8px; }
             .pub-year { width: auto; display: flex; flex-direction: row; gap: 8px; align-items: center; }
             .pub-tag.award { margin-top: 0; }
@@ -452,9 +460,8 @@
 
         <section id="openings">
             <h2>Openings</h2>
-            <div class="openings-box">
-                <p><strong>I am actively recruiting fully-funded Ph.D. students</strong> to join my research group at the <strong>University of Kentucky</strong>. If you are interested in <strong>High-Performance Computing</strong>, <strong>Data Compression</strong>, <strong>Parallel Computing</strong>, <strong>ML Systems</strong>, <strong>Quantum Computing</strong>, or related topics, please feel free to reach out! Positions are available starting from <strong>Fall 2026</strong>.</p>
-                <p>For full details, see the recruiting page: <a href="openings.html">English</a> | <a href="openings-ch.html">中文版</a></p>
+            <div class="openings-content">
+                <p>I am actively recruiting <strong>fully-funded Ph.D. students</strong> to join my research group at the <strong>University of Kentucky</strong>, starting from <strong>Fall 2026</strong> or <strong>Spring 2027</strong>. If you are interested in High-Performance Computing, Data Compression, Parallel Computing, ML Systems, Quantum Computing, or related topics, please feel free to reach out! See the recruiting page for full details: <a href="openings.html">English</a> | <a href="openings-ch.html">中文版</a></p>
             </div>
         </section>
 
@@ -513,23 +520,19 @@
 
         <section id="research">
             <h2>Research</h2>
-            <p style="color: #555; font-size: 17px; margin-bottom: 24px;">My research primarily focuses on <strong style="color: #2a4a5e;">High-Performance Computing (HPC)</strong>, with particular emphasis on:</p>
-            <div class="research-grid">
-                <div class="research-card">
-                    <h3>Data Compression</h3>
-                    <p>Design of GPU-based lossy and lossless compression algorithms for various workloads, with an emphasis on efficiency, fidelity, and scalability.</p>
+            <p style="color: #555; font-size: 17px; margin-bottom: 16px;">My research primarily focuses on <strong style="color: #2a4a5e;">High-Performance Computing (HPC)</strong>, with particular emphasis on:</p>
+            <div class="research-list">
+                <div class="research-item">
+                    <span><span class="research-title">Data Compression</span> <span class="research-desc">— GPU-based lossy &amp; lossless compression for scientific workloads</span></span>
                 </div>
-                <div class="research-card">
-                    <h3>Parallel Computing</h3>
-                    <p>Development of optimized GPU kernels, parallel algorithms, and distributed workflows to accelerate large-scale scientific and engineering applications.</p>
+                <div class="research-item">
+                    <span><span class="research-title">Parallel Computing</span> <span class="research-desc">— optimized GPU kernels and distributed workflows</span></span>
                 </div>
-                <div class="research-card">
-                    <h3>ML Systems</h3>
-                    <p>Research on system-level optimizations for training and inference, including memory footprint reduction and GPU-accelerated data pipelines.</p>
+                <div class="research-item">
+                    <span><span class="research-title">ML Systems</span> <span class="research-desc">— system-level optimizations for training &amp; inference</span></span>
                 </div>
-                <div class="research-card">
-                    <h3>Quantum Computing</h3>
-                    <p>Investigation of high-performance methods to support large-scale quantum circuit simulation and emerging quantum computing applications.</p>
+                <div class="research-item">
+                    <span><span class="research-title">Quantum Computing</span> <span class="research-desc">— large-scale quantum circuit simulation</span></span>
                 </div>
             </div>
         </section>
