@@ -3,628 +3,84 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Boyuan Zhang (张博源)</title>
+    <title>Boyuan Zhang (张博源) | WARP Lab</title>
+    <meta name="description" content="Boyuan Zhang is an Assistant Professor of Computer Science at the University of Kentucky and director of WARP Lab.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@300;400;500;600;700&family=Source+Serif+4:wght@600;700&display=swap" rel="stylesheet">
-    <style>
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-
-        body {
-            font-family: 'Source Sans 3', -apple-system, sans-serif;
-            color: #333;
-            background: #fff;
-            line-height: 1.6;
-        }
-
-        /* ─── Hero / Profile Banner ─── */
-        .hero {
-            background: #16222a;
-            background: linear-gradient(160deg, #16222a 0%, #2a4a5e 100%);
-            color: white;
-            padding: 80px 40px 60px;
-        }
-
-        .hero-inner {
-            max-width: 960px;
-            margin: 0 auto;
-            display: flex;
-            align-items: center;
-            gap: 50px;
-        }
-
-        .hero img {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 3px solid rgba(255,255,255,0.25);
-            flex-shrink: 0;
-        }
-
-        .hero-text h1 {
-            font-family: 'Source Serif 4', Georgia, serif;
-            font-size: 38px;
-            font-weight: 700;
-            margin-bottom: 4px;
-            letter-spacing: -0.3px;
-        }
-
-        .hero-text .subtitle {
-            font-size: 17px;
-            font-weight: 300;
-            color: rgba(255,255,255,0.75);
-            margin-bottom: 2px;
-        }
-
-        .hero-text .email {
-            font-size: 15px;
-            color: rgba(255,255,255,0.55);
-            margin-bottom: 18px;
-        }
-
-        .hero-text .email a {
-            color: rgba(255,255,255,0.75);
-            text-decoration: none;
-            border-bottom: 1px solid rgba(255,255,255,0.3);
-            transition: all 0.2s;
-        }
-
-        .hero-text .email a:hover {
-            color: #fff;
-            border-bottom-color: #fff;
-        }
-
-        .hero-links {
-            display: flex;
-            gap: 12px;
-            flex-wrap: wrap;
-        }
-
-        .hero-links a {
-            display: inline-block;
-            padding: 8px 20px;
-            font-size: 13px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            text-decoration: none;
-            border-radius: 100px;
-            transition: all 0.25s ease;
-        }
-
-        .hero-links a.primary {
-            background: rgba(255,255,255,0.15);
-            color: #fff;
-            border: 1px solid rgba(255,255,255,0.3);
-        }
-
-        .hero-links a.primary:hover {
-            background: #fff;
-            color: #16222a;
-            border-color: #fff;
-        }
-
-        /* ─── Sticky Nav ─── */
-        nav {
-            background: #fff;
-            border-bottom: 1px solid #eee;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        nav .nav-inner {
-            max-width: 960px;
-            margin: 0 auto;
-            display: flex;
-            gap: 0;
-        }
-
-        nav a {
-            display: inline-block;
-            padding: 16px 28px;
-            color: #888;
-            text-decoration: none;
-            font-size: 15px;
-            font-weight: 600;
-            letter-spacing: 0.5px;
-            text-transform: uppercase;
-            border-bottom: 2px solid transparent;
-            transition: all 0.2s ease;
-        }
-
-        nav a:hover, nav a.active {
-            color: #2a4a5e;
-            border-bottom-color: #2a4a5e;
-        }
-
-        /* ─── Main Content ─── */
-        .content {
-            max-width: 960px;
-            margin: 0 auto;
-            padding: 0 40px;
-        }
-
-        section {
-            padding: 50px 0;
-            border-bottom: 1px solid #f0f0f0;
-        }
-
-        section:last-of-type {
-            border-bottom: none;
-        }
-
-        h2 {
-            font-family: 'Source Serif 4', Georgia, serif;
-            font-size: 28px;
-            font-weight: 600;
-            color: #16222a;
-            margin-bottom: 24px;
-        }
-
-        /* ─── About ─── */
-        .about-text {
-            color: #555;
-            font-size: 17px;
-            line-height: 1.85;
-        }
-
-        .about-text p {
-            margin-bottom: 14px;
-        }
-
-        .about-text p:last-child {
-            margin-bottom: 0;
-        }
-
-        .about-text strong {
-            color: #2a4a5e;
-            font-weight: 600;
-        }
-
-        .about-text a {
-            color: #2a4a5e;
-            text-decoration: none;
-            border-bottom: 1px dashed #2a4a5e;
-        }
-
-        .about-text a:hover {
-            border-bottom-style: solid;
-        }
-
-        /* ─── Research ─── */
-        .research-list {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 6px 40px;
-            margin-top: 8px;
-        }
-
-        .research-item {
-            display: flex;
-            align-items: baseline;
-            gap: 12px;
-            padding: 10px 0;
-        }
-
-        .research-item::before {
-            content: '';
-            flex-shrink: 0;
-            width: 6px;
-            height: 6px;
-            border-radius: 50%;
-            background: #2a4a5e;
-            position: relative;
-            top: 1px;
-        }
-
-        .research-item .research-title {
-            font-weight: 600;
-            color: #16222a;
-            font-size: 16px;
-        }
-
-        .research-item .research-desc {
-            color: #888;
-            font-size: 14px;
-            margin-left: 0;
-        }
-
-        /* ─── Publications ─── */
-        .pub-list {
-            margin-top: 10px;
-        }
-
-        .pub-entry {
-            display: flex;
-            gap: 24px;
-            padding: 26px 0;
-            border-bottom: 1px solid #f0f0f0;
-        }
-
-        .pub-entry:last-child {
-            border-bottom: none;
-        }
-
-        .pub-year {
-            flex-shrink: 0;
-            width: 130px;
-            padding-top: 3px;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-
-        .pub-tag {
-            display: block;
-            font-size: 14px;
-            font-weight: 700;
-            text-align: center;
-            padding: 8px 16px;
-            border-radius: 6px;
-            letter-spacing: 0.3px;
-            line-height: 1.3;
-        }
-
-        .pub-tag.conf {
-            color: #2a4a5e;
-            background: #e8f0f5;
-        }
-
-        .pub-tag.award {
-            color: #92600a;
-            background: #fef6e0;
-            border: 1px solid #f0dca0;
-            font-size: 13px;
-        }
-
-        .pub-body {
-            flex: 1;
-            min-width: 0;
-        }
-
-        .pub-body .title {
-            font-weight: 600;
-            color: #222;
-            font-size: 17px;
-            line-height: 1.5;
-            margin-bottom: 8px;
-        }
-
-        .pub-body .authors {
-            font-size: 16px;
-            color: #888;
-            line-height: 1.6;
-            margin-bottom: 6px;
-        }
-
-        .pub-body .authors strong {
-            color: #2a4a5e;
-        }
-
-        .pub-body .venue {
-            font-size: 15px;
-            color: #aaa;
-            font-style: italic;
-        }
-
-        .footnote {
-            font-size: 14px;
-            color: #777;
-            margin-top: 20px;
-            padding-top: 16px;
-            border-top: 1px solid #f0f0f0;
-        }
-
-        .footnote a {
-            color: #2a4a5e;
-            text-decoration: none;
-            border-bottom: 1px dashed #2a4a5e;
-        }
-
-
-
-        /* ─── Openings ─── */
-        .openings-content {
-            background: linear-gradient(135deg, #f6f9fb 0%, #eef3f7 100%);
-            border: 1px solid #dce6ed;
-            border-radius: 10px;
-            padding: 28px 32px;
-            font-size: 17px;
-            color: #555;
-            line-height: 1.85;
-        }
-        .openings-content p { margin-bottom: 12px; }
-        .openings-content p:last-child { margin-bottom: 0; }
-        .openings-content strong { color: #2a4a5e; }
-        .openings-content a { color: #2a4a5e; font-weight: 600; text-decoration: none; border-bottom: 1px dashed #2a4a5e; }
-        .openings-content a:hover { border-bottom-style: solid; }
-        .openings-highlight {
-            display: inline-block;
-            background: transparent;
-            color: #2a4a5e;
-            font-size: 13px;
-            font-weight: 700;
-            letter-spacing: 0.3px;
-            padding: 0;
-            margin-bottom: 14px;
-        }
-
-        /* ─── News ─── */
-        .news-scroll {
-            position: relative;
-            max-height: 380px;
-            overflow-y: auto;
-            padding: 0;
-            scrollbar-width: thin;
-            scrollbar-color: #d8e2ea transparent;
-        }
-        .news-scroll::-webkit-scrollbar { width: 5px; }
-        .news-scroll::-webkit-scrollbar-track { background: transparent; }
-        .news-scroll::-webkit-scrollbar-thumb { background: #d8e2ea; border-radius: 3px; }
-        .news-scroll::-webkit-scrollbar-thumb:hover { background: #9ab5c8; }
-        .news-fade {
-            position: sticky;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 36px;
-            background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%);
-            pointer-events: none;
-        }
-        .news-list { margin: 0; padding: 0; }
-        .news-item { display: flex; gap: 16px; padding: 9px 0; align-items: baseline; }
-        .news-date { flex-shrink: 0; width: 64px; font-size: 13px; font-weight: 600; color: #2a4a5e; font-variant-numeric: tabular-nums; }
-        .news-text { font-size: 15px; color: #555; line-height: 1.55; }
-        .news-text strong { color: #2a4a5e; }
-
-        /* ─── Publication Sub-heading ─── */
-        .pub-subheading { font-family: 'Source Serif 4', Georgia, serif; font-size: 20px; font-weight: 600; color: #2a4a5e; margin-top: 40px; margin-bottom: 10px; padding-bottom: 10px; border-bottom: 1px solid #e8eef2; }
-        .pub-subheading:first-of-type { margin-top: 0; }
-
-        /* ─── Footer ─── */
-        footer {
-            text-align: center;
-            padding: 40px 20px;
-            color: #ccc;
-            font-size: 14px;
-        }
-
-        /* ─── Responsive ─── */
-        @media (max-width: 700px) {
-            .hero {
-                padding: 50px 24px 40px;
-            }
-            .hero-inner {
-                flex-direction: column;
-                text-align: center;
-                gap: 25px;
-            }
-            .hero-text h1 { font-size: 30px; }
-            .hero-links { justify-content: center; }
-            .content { padding: 0 24px; }
-            section { padding: 36px 0; }
-            .research-list { grid-template-columns: 1fr; }
-            .pub-entry { flex-direction: column; gap: 8px; }
-            .pub-year { width: auto; display: flex; flex-direction: row; gap: 8px; align-items: center; }
-            .pub-tag.award { margin-top: 0; }
-            .news-item { flex-direction: column; gap: 4px; }
-            .news-date { width: auto; }
-            nav .nav-inner { justify-content: center; flex-wrap: wrap; }
-            nav a { padding: 14px 12px; font-size: 12px; }
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
-    <!-- Hero -->
     <div class="hero">
         <div class="hero-inner">
             <img src="boyuan.png" alt="Boyuan Zhang">
             <div class="hero-text">
                 <h1>Boyuan Zhang (张博源)</h1>
                 <div class="subtitle">Assistant Professor, Department of Computer Science · University of Kentucky</div>
-                <div class="email">Email: <a href="mailto:bozhan@iu.edu">bozhan@iu.edu</a></div>
+                <div class="subtitle">Director, WARP Lab</div>
+                <div class="email">Email: <a href="#" data-email aria-label="Email Boyuan Zhang">boyuan.zhang [at] uky [dot] edu</a></div>
                 <div class="hero-links">
-                    <a class="primary" href="https://github.com/boyuanzhang62" target="_blank">GitHub</a>
-                    <a class="primary" href="https://scholar.google.com/citations?hl=en&user=GKlJrYYAAAAJ" target="_blank">Google Scholar</a>
-                    <a class="primary" href="https://www.linkedin.com/in/boyuan-zhang-b65344191/" target="_blank">LinkedIn</a>
+                    <a class="primary" href="https://github.com/boyuanzhang62" target="_blank" rel="noopener">GitHub</a>
+                    <a class="primary" href="https://scholar.google.com/citations?hl=en&amp;user=GKlJrYYAAAAJ" target="_blank" rel="noopener">Google Scholar</a>
+                    <a class="primary" href="https://www.linkedin.com/in/boyuan-zhang-b65344191/" target="_blank" rel="noopener">LinkedIn</a>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Nav -->
     <nav>
         <div class="nav-inner">
-            <a href="#about">About</a>
-            <a href="#openings">Openings</a>
-            <a href="#news">News</a>
-            <a href="#publications">Publications</a>
+            <a class="active" href="index.html">Home</a>
+            <a href="team.html">Team</a>
+            <a href="publications.html">Publications</a>
         </div>
     </nav>
 
-    <!-- Content -->
     <div class="content">
-
         <section id="about">
             <h2>About</h2>
             <div class="about-text">
-                <p>I will be joining the Department of Computer Science at the <strong>University of Kentucky</strong> as an Assistant Professor in <strong>Fall 2026</strong>.</p>
-                <p>I earned a B.Eng. in Information Engineering from <strong>Shanghai Jiao Tong University</strong> (2018), an M.S. in Electrical Engineering from the <strong>University of Southern California</strong> (2020), and a Ph.D. from the Department of Intelligent Systems Engineering at <strong>Indiana University Bloomington</strong> (2026), advised by Dr. Dingwen Tao and Dr. Fengguang Song.</p>
-                <p>I collaborate with <strong>Argonne National Laboratory</strong> (Dr. Sheng Di, Dr. Franck Cappello) on scientific data compression, <strong>Pacific Northwest National Laboratory</strong> (Dr. Nathan R. Tallent) on quantum simulation and AI-based compression, and <strong>Meta</strong> (Dr. Min Si) on GPU-based compression for distributed training. In the summer of 2025, I interned at <strong>ByteDance</strong> (Seed, ML Systems) working on LLM inference optimization.</p>
-                <p>My research primarily focuses on <strong>High-Performance Computing (HPC)</strong>, including <strong>data compression</strong>, <strong>parallel computing</strong>, <strong>ML systems</strong>, and <strong>quantum computing</strong>.</p>
+                <p>I am an Assistant Professor in the Department of Computer Science at the <strong>University of Kentucky</strong> and director of the <strong>WARP Lab</strong>. WARP stands for <strong>Workload Acceleration, Reduction, and Parallelism</strong>.</p>
+                <p>My research focuses on <strong>High-Performance Computing</strong>, <strong>accelerated computing</strong>, <strong>data analysis</strong>, and <strong>data reduction</strong>, with applications in scientific computing, AI systems, and quantum simulation.</p>
+                <p>I received my Ph.D. from <strong>Indiana University Bloomington</strong>, my M.S. from the <strong>University of Southern California</strong>, and my B.Eng. from <strong>Shanghai Jiao Tong University</strong>.</p>
             </div>
         </section>
 
         <section id="openings">
             <h2>Openings</h2>
             <div class="openings-content">
-                <p>I am actively recruiting <strong>fully-funded Ph.D. students</strong> to join my research group at the <strong>University of Kentucky</strong>, starting from <strong>Fall 2026</strong> or <strong>Spring 2027</strong>. If you are interested in High-Performance Computing, Data Compression, Parallel Computing, ML Systems, Quantum Computing, or related topics, please feel free to reach out! See the recruiting page for full details: <a href="openings.html">English</a> | <a href="openings-ch.html">中文版</a></p>
+                <p>WARP Lab is recruiting <strong>fully funded Ph.D. students</strong> beginning <strong>Fall 2026</strong>. Students interested in HPC and data-intensive computing are encouraged to apply. See details in <a href="openings.html">English</a> or <a href="openings-ch.html">中文</a>.</p>
             </div>
         </section>
 
         <section id="news">
             <h2>News</h2>
             <div class="news-scroll">
-                <div class="news-list">
-                    <div class="news-item">
-                        <div class="news-date">2026.06</div>
-                        <div class="news-text">Joining the University of Kentucky as an Assistant Professor.</div>
-                    </div>
-                    <div class="news-item">
-                        <div class="news-date">2026.03</div>
-                        <div class="news-text">Two papers accepted at <strong>IPDPS'26</strong>.</div>
-                    </div>
-                    <div class="news-item">
-                        <div class="news-date">2025.11</div>
-                        <div class="news-text">Served as a student volunteer at <strong>SC'25</strong>.</div>
-                    </div>
-                    <div class="news-item">
-                        <div class="news-date">2025.10</div>
-                        <div class="news-text">Reached <strong>Diamond</strong> in League of Legends with a 68% win rate, maining Aatrox top lane.</div>
-                    </div>
-                    <div class="news-item">
-                        <div class="news-date">2025.06</div>
-                        <div class="news-text">Awarded <strong>Best Paper Runner-Up</strong> at ACM ICS'25 for BMQSim.</div>
-                    </div>
-                    <div class="news-item">
-                        <div class="news-date">2025.06</div>
-                        <div class="news-text">Nominated as <strong>Best Paper Candidate</strong> at ACM ICS'25 for Aatrox.</div>
-                    </div>
-                    <div class="news-item">
-                        <div class="news-date">2025.06</div>
-                        <div class="news-text">One paper accepted at <strong>SC'25</strong>.</div>
-                    </div>
-                    <div class="news-item">
-                        <div class="news-date">2025.05</div>
-                        <div class="news-text">Joined <strong>ByteDance</strong> (Seed, ML Systems) as a research intern, working on LLM inference optimization.</div>
-                    </div>
-                    <div class="news-item">
-                        <div class="news-date">2025.03</div>
-                        <div class="news-text">Three papers accepted at <strong>ICS'25</strong>.</div>
-                    </div>
-                    <div class="news-item">
-                        <div class="news-date">2024.10</div>
-                        <div class="news-text">One paper and one poster accepted at <strong>PPoPP'25</strong>.</div>
-                    </div>
-                    <div class="news-item">
-                        <div class="news-date">2024.07</div>
-                        <div class="news-text">Two papers accepted at <strong>SC'24</strong>.</div>
-                    </div>
-                    <div class="news-item">
-                        <div class="news-date">2024.02</div>
-                        <div class="news-text">One paper accepted at <strong>DAC'24</strong>.</div>
-                    </div>
-                    <div class="news-item">
-                        <div class="news-date">2023.11</div>
-                        <div class="news-text">Served as a student volunteer at <strong>SC'23</strong>.</div>
-                    </div>
-                    <div class="news-item">
-                        <div class="news-date">2023.05</div>
-                        <div class="news-text">Joined <strong>Pacific Northwest National Laboratory</strong> as a research intern.</div>
-                    </div>
-                    <div class="news-item">
-                        <div class="news-date">2023.04</div>
-                        <div class="news-text">One paper accepted at <strong>HPDC'23</strong>.</div>
-                    </div>
-                    <div class="news-item">
-                        <div class="news-date">2023.04</div>
-                        <div class="news-text">One paper accepted at <strong>ICS'23</strong>.</div>
-                    </div>
-                    <div class="news-item">
-                        <div class="news-date">2022.08</div>
-                        <div class="news-text">Started research collaboration with <strong>Meta</strong> on compression for distributed training.</div>
-                    </div>
-                </div>
-                <div class="news-fade"></div>
+              <div class="news-list">
+                <div class="news-item"><div class="news-date">2026.08</div><div class="news-text">Xizhi Zhan joined <strong>WARP Lab</strong>.</div></div>
+                <div class="news-item"><div class="news-date">2026.08</div><div class="news-text">Joined the University of Kentucky as an Assistant Professor.</div></div>
+                <div class="news-item"><div class="news-date">2026.03</div><div class="news-text">Two papers accepted at <strong>IPDPS'26</strong>.</div></div>
+                <div class="news-item"><div class="news-date">2025.11</div><div class="news-text">Served as a student volunteer at <strong>SC'25</strong>.</div></div>
+                <div class="news-item"><div class="news-date">2025.06</div><div class="news-text">Awarded <strong>Best Paper Runner-Up</strong> at ACM ICS'25 for BMQSim.</div></div>
+                <div class="news-item"><div class="news-date">2025.06</div><div class="news-text">Nominated as <strong>Best Paper Candidate</strong> at ACM ICS'25 for Aatrox.</div></div>
+                <div class="news-item"><div class="news-date">2025.06</div><div class="news-text">One paper accepted at <strong>SC'25</strong>.</div></div>
+                <div class="news-item"><div class="news-date">2025.05</div><div class="news-text">Joined <strong>ByteDance</strong> (Seed, ML Systems) as a research intern, working on LLM inference optimization.</div></div>
+                <div class="news-item"><div class="news-date">2025.03</div><div class="news-text">Three papers accepted at <strong>ICS'25</strong>.</div></div>
+                <div class="news-item"><div class="news-date">2024.10</div><div class="news-text">One paper and one poster accepted at <strong>PPoPP'25</strong>.</div></div>
+                <div class="news-item"><div class="news-date">2024.07</div><div class="news-text">Two papers accepted at <strong>SC'24</strong>.</div></div>
+                <div class="news-item"><div class="news-date">2024.02</div><div class="news-text">One paper accepted at <strong>DAC'24</strong>.</div></div>
+                <div class="news-item"><div class="news-date">2023.11</div><div class="news-text">Served as a student volunteer at <strong>SC'23</strong>.</div></div>
+                <div class="news-item"><div class="news-date">2023.05</div><div class="news-text">Joined <strong>Pacific Northwest National Laboratory</strong> as a research intern.</div></div>
+                <div class="news-item"><div class="news-date">2023.04</div><div class="news-text">One paper accepted at <strong>HPDC'23</strong>.</div></div>
+                <div class="news-item"><div class="news-date">2023.04</div><div class="news-text">One paper accepted at <strong>ICS'23</strong>.</div></div>
+                <div class="news-item"><div class="news-date">2022.08</div><div class="news-text">Started research collaboration with <strong>Meta</strong> on compression for distributed training.</div></div>
+              </div>
+              <div class="news-fade"></div>
             </div>
         </section>
-
-        <section id="publications">
-            <h2>Selected Publications</h2>
-            <div class="pub-list">
-
-                <div class="pub-entry">
-                    <div class="pub-year"><span class="pub-tag conf">IPDPS'26</span></div>
-                    <div class="pub-body">
-                        <div class="title">Near-Zero Cost KV Cache Compression for Large Language Model Inference</div>
-                        <div class="authors"><strong><u>Boyuan Zhang</u></strong>, Ding Zhou, Yafan Huang, Shihui Song, Hao Feng, Jinda Jia, Chengming Zhang, and Zhi Zhang.</div>
-                        <div class="venue">Proceedings of the 40th IEEE International Parallel and Distributed Processing Symposium, 2026.</div>
-                    </div>
-                </div>
-
-                <div class="pub-entry">
-                    <div class="pub-year"><span class="pub-tag conf">IPDPS'26</span></div>
-                    <div class="pub-body">
-                        <div class="title">Accelerating AI Compression through Lightweight Lossless Encoding and Pipelined Workflows</div>
-                        <div class="authors"><strong><u>Boyuan Zhang</u></strong>, Luanzheng Guo, Jiannan Tian, Jinyang Liu, Daoce Wang, Chengming Zhang, Bo Fang, Fengguang Song, Jan Strube, Nathan R. Tallent, and Dingwen Tao.</div>
-                        <div class="venue">Proceedings of the 40th IEEE International Parallel and Distributed Processing Symposium, 2026.</div>
-                    </div>
-                </div>
-
-                <div class="pub-entry">
-                    <div class="pub-year">
-                        <span class="pub-tag conf">ICS'25</span>
-                        <span class="pub-tag award">Best Paper Runner-Up</span>
-                    </div>
-                    <div class="pub-body">
-                        <div class="title">BMQSim: Overcoming Memory Constraints in Quantum Circuit Simulation with a High-Fidelity Compression Framework</div>
-                        <div class="authors"><strong><u>Boyuan Zhang</u></strong>, Bo Fang, Fanjiang Ye, Luanzheng Guo, Fengguang Song, Nathan R. Tallent, and Dingwen Tao.</div>
-                        <div class="venue">Proceedings of the 39th ACM International Conference on Supercomputing, pp. 689-704, 2025.</div>
-                    </div>
-                </div>
-
-                <div class="pub-entry">
-                    <div class="pub-year">
-                        <span class="pub-tag conf">ICS'25</span>
-                        <span class="pub-tag award">Best Paper Candidate</span>
-                    </div>
-                    <div class="pub-body">
-                        <div class="title">Pushing the Limits of GPU Lossy Compression: A Hierarchical Delta Approach</div>
-                        <div class="authors"><strong><u>Boyuan Zhang</u></strong>, Yafan Huang, Sheng Di, Fengguang Song, Guanpeng Li, and Franck Cappello.</div>
-                        <div class="venue">Proceedings of the 39th ACM International Conference on Supercomputing, pp. 654-669, 2025.</div>
-                    </div>
-                </div>
-
-                <div class="pub-entry">
-                    <div class="pub-year"><span class="pub-tag conf">SC'24</span></div>
-                    <div class="pub-body">
-                        <div class="title">Accelerating Communication in Deep Learning Recommendation Model Training with Dual-Level Adaptive Lossy Compression</div>
-                        <div class="authors">Hao Feng*, <strong><u>Boyuan Zhang</u></strong>*, Fanjiang Ye, Min Si, Ching-Hsiang Chu, Jiannan Tian, Chunxing Yin, Summer Deng, Yuchen Hao, Pavan Balaji, Tong Geng, and Dingwen Tao.</div>
-                        <div class="venue">SC24: International Conference for High Performance Computing, Networking, Storage and Analysis, pp. 1-16, IEEE, 2024.</div>
-                    </div>
-                </div>
-
-                <div class="pub-entry">
-                    <div class="pub-year"><span class="pub-tag conf">HPDC'23</span></div>
-                    <div class="pub-body">
-                        <div class="title">FZ-GPU: A Fast and High-Ratio Lossy Compressor for Scientific Computing Applications on GPUs</div>
-                        <div class="authors"><strong><u>Boyuan Zhang</u></strong>, Jiannan Tian, Sheng Di, Xiaodong Yu, Yunhe Feng, Xin Liang, Dingwen Tao, and Franck Cappello.</div>
-                        <div class="venue">Proceedings of the 32nd International Symposium on High-Performance Parallel and Distributed Computing, pp. 129–142, 2023.</div>
-                    </div>
-                </div>
-
-                <div class="pub-entry">
-                    <div class="pub-year"><span class="pub-tag conf">ICS'23</span></div>
-                    <div class="pub-body">
-                        <div class="title">GPULZ: Optimizing LZSS Lossless Compression for Multi-Byte Data on Modern GPUs</div>
-                        <div class="authors"><strong><u>Boyuan Zhang</u></strong>, Jiannan Tian, Sheng Di, Xiaodong Yu, Martin Swany, Dingwen Tao, and Franck Cappello.</div>
-                        <div class="venue">Proceedings of the 37th ACM International Conference on Supercomputing, pp. 348–359, 2023.</div>
-                    </div>
-                </div>
-
-            </div>
-
-            <p class="footnote">* denotes equal contribution. Please refer to the full list on <a href="https://scholar.google.com/citations?hl=en&user=GKlJrYYAAAAJ" target="_blank">Google Scholar</a>.</p>
-        </section>
-
     </div>
 
-    <footer>
-        <p>&copy; 2026 Boyuan Zhang. All rights reserved.</p>
-    </footer>
-
+    <footer><p>&copy; 2026 Boyuan Zhang. All rights reserved.</p></footer>
+    <script src="email.js"></script>
 </body>
 </html>
