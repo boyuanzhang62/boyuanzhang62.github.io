@@ -196,6 +196,10 @@ h2 {
 .footnote a { color: #2a4a5e; text-decoration: none; border-bottom: 1px dashed #2a4a5e; }
 
 /* Service and teaching */
+.service-list { margin: 0; padding: 0; list-style: none; }
+.service-entry { display: flex; align-items: baseline; gap: 16px; padding: 7px 0; color: #555; font-size: 16px; }
+.service-date { width: 64px; flex-shrink: 0; color: #2a4a5e; font-size: 14px; font-weight: 600; }
+.service-entry strong { color: #2a4a5e; font-weight: 600; }
 .page-intro { color: #555; font-size: 17px; line-height: 1.85; }
 .activity-list { margin: 0; padding: 0; list-style: none; }
 .activity-entry { display: flex; gap: 24px; padding: 22px 0; border-bottom: 1px solid #f0f0f0; }
