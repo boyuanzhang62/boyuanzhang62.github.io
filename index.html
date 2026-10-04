@@ -15,9 +15,10 @@
         <div class="hero-inner">
             <img src="boyuan.png" alt="Boyuan Zhang">
             <div class="hero-text">
-                <h1>Boyuan Zhang (张博源)</h1>
+                <h1>Boyuan Zhang <span class="name-cn">(张博源)</span></h1>
                 <div class="subtitle">Assistant Professor, Department of Computer Science · University of Kentucky</div>
-                <div class="subtitle">Director, THREAD Lab</div>
+                <div class="contact">Office: James F. Hardymon Building</div>
+                <div class="contact">Office phone: <a href="tel:+18592578029">+1 (859) 257-8029</a></div>
                 <div class="email">Email: <a href="#" data-email aria-label="Email Boyuan Zhang">boyuan.zhang [at] uky [dot] edu</a></div>
                 <div class="hero-links">
                     <a class="primary" href="https://github.com/boyuanzhang62" target="_blank" rel="noopener">GitHub</a>
@@ -29,11 +30,13 @@
         </div>
     </div>
 
-    <nav>
+    <nav aria-label="Main navigation">
         <div class="nav-inner">
-            <a class="active" href="index.html">Home</a>
+            <a class="active" aria-current="page" href="index.html">Home</a>
             <a href="team.html">LAB</a>
             <a href="publications.html">Publications</a>
+            <a href="service.html">Service</a>
+            <a href="teaching.html">Teaching</a>
         </div>
     </nav>
 
@@ -43,8 +46,8 @@
             <div class="about-text">
                 <p>I am an Assistant Professor in the Department of Computer Science at the <strong>University of Kentucky</strong>, where I joined in August 2026, and director of the <strong>THREAD Lab</strong>.</p>
                 <p>My research focuses on <strong>high-performance computing (HPC)</strong>, <strong>GPU-accelerated data compression</strong>, <strong>machine learning systems</strong>, and <strong>quantum computing</strong>. I develop efficient parallel algorithms and systems that reduce memory usage and data movement in scientific and AI workloads. My work includes lossy and lossless compression on GPUs, compression for large language model inference and distributed training, and scalable quantum circuit simulation. Across these areas, I aim to improve performance and scalability while preserving the fidelity of scientific results.</p>
-                <p>I received my Ph.D. in <strong>Intelligent Systems Engineering</strong> from <strong>Indiana University Bloomington</strong> in June 2026, advised by Prof. Fengguang Song and Prof. Dingwen Tao. I began my doctoral studies at Washington State University in 2021 and transferred to IU with Prof. Tao's group in 2022. Before that, I earned my M.S. in <strong>Electrical Engineering</strong> from the <strong>University of Southern California</strong> in 2020 and my B.Eng. in <strong>Information Engineering</strong> from <strong>Shanghai Jiao Tong University</strong> in 2018.</p>
-                <p>I have worked with researchers at <strong>Pacific Northwest National Laboratory</strong>, <strong>Argonne National Laboratory</strong>, and <strong>Meta</strong>, and was a Research Scientist Intern at <strong>ByteDance</strong> in summer 2025. My work received the <strong>Best Paper Runner-Up</strong> award for BMQSim and a <strong>Best Paper Candidate</strong> nomination for Aatrox at ACM ICS'25. See my <a href="publications.html">publications</a> and <a href="CV_Boyuan_Zhang_2026.pdf" target="_blank" rel="noopener">curriculum vitae (PDF)</a> for more details.</p>
+                <p>I received my Ph.D. in <strong>Intelligent Systems Engineering</strong> from <strong>Indiana University Bloomington</strong> in June 2026, advised by Prof. Fengguang Song and Prof. Dingwen Tao. Before that, I earned my M.S. in <strong>Electrical Engineering</strong> from the <strong>University of Southern California</strong> in 2020 and my B.Eng. in <strong>Information Engineering</strong> from <strong>Shanghai Jiao Tong University</strong> in 2018.</p>
+                <p>I have collaborated with <strong>Pacific Northwest National Laboratory</strong>, <strong>Argonne National Laboratory</strong>, and <strong>Meta</strong>. I also interned at <strong>Pacific Northwest National Laboratory</strong> and was a Research Scientist Intern at <strong>ByteDance</strong> in summer 2025. My work received the <strong>Best Paper Runner-Up</strong> award for BMQSim and a <strong>Best Paper Candidate</strong> nomination for Aatrox at ACM ICS'25. See my <a href="publications.html">publications</a> and <a href="CV_Boyuan_Zhang_2026.pdf" target="_blank" rel="noopener">curriculum vitae (PDF)</a> for more details.</p>
             </div>
         </section>
 
@@ -81,6 +84,47 @@
                 <li class="news-item"><time class="news-date" datetime="2023-04">2023.04</time><div class="news-text">One paper accepted at <strong>ICS'23</strong>.</div></li>
                 <li class="news-item"><time class="news-date" datetime="2022-08">2022.08</time><div class="news-text">Started research collaboration with <strong>Meta</strong> on compression for distributed training.</div></li>
             </ul>
+        </section>
+        <section id="selected-publications">
+            <h2>Selected Publications</h2>
+            <div class="pub-list">
+                <div class="pub-entry">
+                    <div class="pub-year"><span class="pub-tag conf">IPDPS'26</span></div>
+                    <div class="pub-body"><div class="title">Near-Zero Cost KV Cache Compression for Large Language Model Inference</div><div class="authors"><strong><u>Boyuan Zhang</u></strong>, Ding Zhou, Yafan Huang, Shihui Song, Hao Feng, Jinda Jia, Chengming Zhang, and Zhi Zhang.</div><div class="venue">Proceedings of the 40th IEEE International Parallel and Distributed Processing Symposium, 2026.</div></div>
+                </div>
+
+                <div class="pub-entry">
+                    <div class="pub-year"><span class="pub-tag conf">IPDPS'26</span></div>
+                    <div class="pub-body"><div class="title">Accelerating AI Compression through Lightweight Lossless Encoding and Pipelined Workflows</div><div class="authors"><strong><u>Boyuan Zhang</u></strong>, Luanzheng Guo, Jiannan Tian, Jinyang Liu, Daoce Wang, Chengming Zhang, Bo Fang, Fengguang Song, Jan Strube, Nathan R. Tallent, and Dingwen Tao.</div><div class="venue">Proceedings of the 40th IEEE International Parallel and Distributed Processing Symposium, 2026.</div></div>
+                </div>
+
+                <div class="pub-entry">
+                    <div class="pub-year"><span class="pub-tag conf">ICS'25</span><span class="pub-tag award">Best Paper Runner-Up</span></div>
+                    <div class="pub-body"><div class="title">BMQSim: Overcoming Memory Constraints in Quantum Circuit Simulation with a High-Fidelity Compression Framework</div><div class="authors"><strong><u>Boyuan Zhang</u></strong>, Bo Fang, Fanjiang Ye, Luanzheng Guo, Fengguang Song, Nathan R. Tallent, and Dingwen Tao.</div><div class="venue">Proceedings of the 39th ACM International Conference on Supercomputing, pp. 689–704, 2025.</div></div>
+                </div>
+
+                <div class="pub-entry">
+                    <div class="pub-year"><span class="pub-tag conf">ICS'25</span><span class="pub-tag award">Best Paper Candidate</span></div>
+                    <div class="pub-body"><div class="title">Pushing the Limits of GPU Lossy Compression: A Hierarchical Delta Approach</div><div class="authors"><strong><u>Boyuan Zhang</u></strong>, Yafan Huang, Sheng Di, Fengguang Song, Guanpeng Li, and Franck Cappello.</div><div class="venue">Proceedings of the 39th ACM International Conference on Supercomputing, pp. 654–669, 2025.</div></div>
+                </div>
+
+                <div class="pub-entry">
+                    <div class="pub-year"><span class="pub-tag conf">SC'24</span></div>
+                    <div class="pub-body"><div class="title">Accelerating Communication in Deep Learning Recommendation Model Training with Dual-Level Adaptive Lossy Compression</div><div class="authors">Hao Feng*, <strong><u>Boyuan Zhang*</u></strong>, Fanjiang Ye, Min Si, Ching-Hsiang Chu, Jiannan Tian, Chunxing Yin, Summer Deng, Yuchen Hao, Pavan Balaji, Tong Geng, and Dingwen Tao.</div><div class="venue">SC24: International Conference for High Performance Computing, Networking, Storage and Analysis, pp. 1–16, IEEE, 2024.</div></div>
+                </div>
+
+                <div class="pub-entry">
+                    <div class="pub-year"><span class="pub-tag conf">HPDC'23</span></div>
+                    <div class="pub-body"><div class="title">FZ-GPU: A Fast and High-Ratio Lossy Compressor for Scientific Computing Applications on GPUs</div><div class="authors"><strong><u>Boyuan Zhang</u></strong>, Jiannan Tian, Sheng Di, Xiaodong Yu, Yunhe Feng, Xin Liang, Dingwen Tao, and Franck Cappello.</div><div class="venue">Proceedings of the 32nd International Symposium on High-Performance Parallel and Distributed Computing, pp. 129–142, 2023.</div></div>
+                </div>
+
+                <div class="pub-entry">
+                    <div class="pub-year"><span class="pub-tag conf">ICS'23</span></div>
+                    <div class="pub-body"><div class="title">GPULZ: Optimizing LZSS Lossless Compression for Multi-Byte Data on Modern GPUs</div><div class="authors"><strong><u>Boyuan Zhang</u></strong>, Jiannan Tian, Sheng Di, Xiaodong Yu, Martin Swany, Dingwen Tao, and Franck Cappello.</div><div class="venue">Proceedings of the 37th ACM International Conference on Supercomputing, pp. 348–359, 2023.</div></div>
+                </div>
+            </div>
+
+            <p class="footnote">* denotes equal contribution. See the <a href="publications.html">complete publication list</a>.</p>
         </section>
     </div>
 
