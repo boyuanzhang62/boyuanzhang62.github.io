@@ -201,8 +201,18 @@ h2 {
 .service-entry { display: flex; align-items: baseline; gap: 16px; padding: 7px 0; color: #555; font-size: 16px; }
 .service-date { width: 64px; flex-shrink: 0; color: #2a4a5e; font-size: 14px; font-weight: 600; }
 .service-entry strong { color: #2a4a5e; font-weight: 600; }
-.teaching-list .service-date { width: 96px; }
 .page-intro { color: #555; font-size: 17px; line-height: 1.85; }
+
+/* Courses, with repeated semesters grouped together */
+.teaching-list { display: grid; gap: 14px; margin: 0; padding: 0; list-style: none; }
+.teaching-entry { display: grid; grid-template-columns: 112px minmax(0, 1fr); gap: 24px; padding: 22px 24px; border: 1px solid #e3ebf0; border-radius: 8px; }
+.teaching-entry.current-course { background: #f6f9fb; border-color: #d5e1e9; }
+.teaching-terms { display: flex; flex-direction: column; gap: 6px; padding-top: 3px; color: #2a4a5e; font-size: 14px; font-weight: 600; }
+.teaching-course-header { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px 16px; margin-bottom: 8px; }
+.teaching-code { color: #2a4a5e; font-size: 13px; font-weight: 700; letter-spacing: 0.4px; }
+.teaching-role { color: #777; font-size: 13px; }
+.teaching-course h3 { color: #16222a; font-size: 19px; font-weight: 600; line-height: 1.4; margin-bottom: 5px; }
+.teaching-course p { color: #777; font-size: 15px; }
 
 /* Team additions, styled to match the original page */
 .team-list { display: flex; flex-direction: column; gap: 0; }
@@ -243,4 +253,7 @@ footer { text-align: center; padding: 40px 20px; color: #ccc; font-size: 14px; }
     .team-photo { width: 96px; height: 96px; }
     .team-info h3 { font-size: 20px; }
     .team-bio { font-size: 15px; }
+    .teaching-entry { grid-template-columns: 1fr; gap: 12px; padding: 18px 20px; }
+    .teaching-terms { flex-direction: row; flex-wrap: wrap; gap: 6px 16px; padding-top: 0; }
+    .teaching-course h3 { font-size: 18px; }
 }
