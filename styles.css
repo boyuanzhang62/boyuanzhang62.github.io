@@ -51,13 +51,14 @@ body {
     margin-bottom: 2px;
 }
 
-.hero-text .email {
+.hero-text .email, .hero-text .contact {
     font-size: 15px;
-    color: rgba(255,255,255,0.55);
-    margin-bottom: 18px;
+    font-weight: 400;
+    color: rgba(255,255,255,0.75);
+    margin-bottom: 2px;
 }
 
-.hero-text .contact { font-size: 15px; color: rgba(255,255,255,0.75); margin-bottom: 2px; }
+.hero-text .email { margin-bottom: 18px; }
 
 .hero-text .email a, .hero-text .contact a {
     color: rgba(255,255,255,0.75);
@@ -200,14 +201,8 @@ h2 {
 .service-entry { display: flex; align-items: baseline; gap: 16px; padding: 7px 0; color: #555; font-size: 16px; }
 .service-date { width: 64px; flex-shrink: 0; color: #2a4a5e; font-size: 14px; font-weight: 600; }
 .service-entry strong { color: #2a4a5e; font-weight: 600; }
+.teaching-list .service-date { width: 96px; }
 .page-intro { color: #555; font-size: 17px; line-height: 1.85; }
-.activity-list { margin: 0; padding: 0; list-style: none; }
-.activity-entry { display: flex; gap: 24px; padding: 22px 0; border-bottom: 1px solid #f0f0f0; }
-.activity-entry:last-child { border-bottom: none; }
-.activity-date { width: 130px; flex-shrink: 0; padding-top: 3px; color: #2a4a5e; font-size: 14px; font-weight: 600; }
-.activity-body { min-width: 0; }
-.activity-body h3 { font-size: 18px; font-weight: 600; color: #222; line-height: 1.5; margin-bottom: 4px; }
-.activity-body p { color: #666; font-size: 16px; }
 
 /* Team additions, styled to match the original page */
 .team-list { display: flex; flex-direction: column; gap: 0; }
@@ -248,6 +243,4 @@ footer { text-align: center; padding: 40px 20px; color: #ccc; font-size: 14px; }
     .team-photo { width: 96px; height: 96px; }
     .team-info h3 { font-size: 20px; }
     .team-bio { font-size: 15px; }
-    .activity-entry { flex-direction: column; gap: 6px; }
-    .activity-date { width: auto; padding-top: 0; }
 }

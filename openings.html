@@ -7,6 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@300;400;500;600;700&family=Source+Serif+4:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="language-switch.css?v=20261004-4">
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body { font-family: 'Source Sans 3', -apple-system, sans-serif; color: #333; background: #fff; line-height: 1.6; }
@@ -47,17 +48,6 @@
             padding: 20px 40px 0;
             text-align: right;
         }
-        .lang-switch a {
-            font-size: 14px;
-            color: #2a4a5e;
-            text-decoration: none;
-            border: 1px solid #d0dde5;
-            padding: 6px 16px;
-            border-radius: 100px;
-            font-weight: 600;
-            transition: all 0.2s;
-        }
-        .lang-switch a:hover { background: #2a4a5e; color: #fff; }
 
         .container {
             max-width: 800px;
@@ -211,6 +201,7 @@
         @media (max-width: 700px) {
             .page-header { padding: 36px 24px 30px; }
             .page-header h1 { font-size: 26px; }
+            .page-header-inner { flex-wrap: wrap; gap: 16px; }
             .container { padding: 30px 24px 60px; }
             .lang-switch { padding: 16px 24px 0; }
         }
@@ -226,7 +217,11 @@
     </div>
 
     <div class="lang-switch">
-        <a href="openings-ch.html">中文版 / Chinese Version</a>
+        <nav class="language-toggle" aria-label="Language" data-language="en">
+            <span class="language-thumb" aria-hidden="true"></span>
+            <a href="openings.html" lang="en" hreflang="en" data-language="en" aria-current="page">English</a>
+            <a href="openings-ch.html" lang="zh-CN" hreflang="zh-CN" data-language="zh">中文</a>
+        </nav>
     </div>
 
     <div class="container">
@@ -381,5 +376,6 @@
     </script>
 
     <script src="email.js"></script>
+    <script src="language-switch.js?v=20261004-4"></script>
 </body>
 </html>
